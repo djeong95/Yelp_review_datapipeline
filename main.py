@@ -35,8 +35,7 @@ except FileNotFoundError:
 # Assign url and api_key for Yelp Fusion API
 URL = 'https://api.yelp.com/v3/businesses/search'
 
-API_KEY = '6QhSzE5wn7gNrKEGW3zO-8JAyEPeUZ5Zb-a54o-pk6gysZO0wYjOS_vHwoFIka8_DvSIYQai3SlpXV6XsJ574W-h\
-WogbmEc5F3YNYaB212ONkV8WPc0XHxJEvA8SZHYx'  # your api key
+API_KEY =   # your api key
 
 HEADERS = {
     'Authorization': 'Bearer %s' % API_KEY

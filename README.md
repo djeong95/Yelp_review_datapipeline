@@ -1,18 +1,26 @@
-# Yelp_review_datapipeline
+# Yelp Review Restaurant Recommendations
 
-## Architecture
+## Problem Statement
+The food and drinks recommendations provided by Google Maps and Yelp are mostly based on specific locations, ratings, and reviews. It is difficult to see if there are any new restaurants to try or holistically assess all of the restaurants in the area. I want to create an ELT pipeline that will enable me to study California's yelp dataset, find places that I have yet tried, and see if I can create a robust restaurant recommendation system competitive as Yelp's and Google's.
 
-Pipeline Breakdown:
+## Technology Stack
+The following technologies are used to build this project
 
-### Overview
+- Google Cloud Storage (GCS) as Data Lake
+- Google BigQuery for Data Warehouse
+- Terraform as Infrastructure-as-Code (IaC) tool to set up Cloud environment
+- Prefect for orchestration workflow
+- dbt for transformation and data modeling
+- Google Looker studio for visualizations
+## Data Pipeline Architecture
+<img width="784" alt="image" src="https://github.com/djeong95/Yelp_review_datapipeline/assets/102641321/54e10af8-57c5-4a24-865d-ccaa4e60ba11">
 
-### ETL Flow
-
-## Data Warehouse
-
+## Data Dashboard
+TBD
 ## Data Insights
-
-
+TBD
+## Future Improvements
+TBD
 ## Reproduce it yourself
 
 1. Fork this repo, and clone it to your local environment.

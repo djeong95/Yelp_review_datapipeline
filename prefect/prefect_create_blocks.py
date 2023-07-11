@@ -30,3 +30,6 @@ gcs_bucket_block = GcsBucket(
     gcp_credentials = credentials
 )
 gcs_bucket_block.save(f"{gcs_bucket_name}", overwrite=True)
+
+# run this file under pwd /Users/davidjeong/Documents/data-engineering-zoomcamp/week_7_project/Yelp_review_datapipeline
+# python prefect/prefect_create_blocks.py

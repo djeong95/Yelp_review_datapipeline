@@ -89,7 +89,7 @@ def get_api_data(url, headers, term, lat, long, limit = 50):
     return data
 
 @flow(name="Subflow", log_prints=True)
-def pull_data_across_locations(url, headers, terms, df_locations):
+def pull_data_across_locations(url, headers, terms, df_locations, start_slice, end_slice):
     """
     Tap into get_api_data function to retrieve data from Yelp Fusion API
     using the provided URL, headers, and parameters, and return the JSON data.
@@ -103,7 +103,7 @@ def pull_data_across_locations(url, headers, terms, df_locations):
 
     for term in terms:
 
-        for i in range(df_locations.shape[0]):
+        for i in range(start_slice, end_slice): # df_locations.shape[0]
             print(term, df_locations.iloc[i]['Name'], i)
             # Get results from get_api_data
             result = get_api_data(url, headers, term, df_locations.iloc[i]['Latitude'],
@@ -118,20 +118,17 @@ def pull_data_across_locations(url, headers, terms, df_locations):
     return results
 
 @flow(name="Ingest Flow")
-def etl_api_to_gcs() -> None:
-    
+def etl_api_to_gcs(terms: list, start_slice: int, end_slice: int) -> None:
     df_locations = fetch_location_df("california_lat_long_cities.csv")
     # df_county = fetch_location_df("california_county_cities.csv")
-
     # print(df_locations[233::])
     
     # Assign url and api_key for Yelp Fusion API
     URL = 'http://api.yelp.com/v3/businesses/search'
     API_KEY = os.getenv("YELP_API_KEY")  # your api key
     HEADERS = {'Authorization': 'Bearer %s' % API_KEY}
-    TERMS = ['Restaurants'] # ['Juice Bars & Smoothies', 'Desserts', 'Bakeries', 'Coffee & Tea', 'Bubble Tea']
     
-    pull_data_across_locations(URL, HEADERS, TERMS, df_locations[:233]) # df_locations[:233] is AtoL; df_locations[233::] is MtoZ
+    pull_data_across_locations(URL, HEADERS, terms, df_locations, start_slice, end_slice) # df_locations[0:233] is AtoL; df_locations[233:469] is MtoZ
     
     # send local csv lat long file to GCS
     write_gcs("california_lat_long_cities.csv")
@@ -139,11 +136,15 @@ def etl_api_to_gcs() -> None:
     write_gcs("california_county_cities.csv")
 
     # print(api_results)
-    # ['Restaurants', 'Food']
+    # 
     # Specify parameters for API
     # Torrance,33.83585,-118.340628 / iloc[415:416]
 
 if __name__ == "__main__":
-    etl_api_to_gcs()
+    
+    TERMS = ['Restaurants'] # ['Juice Bars & Smoothies', 'Desserts', 'Bakeries', 'Coffee & Tea', 'Bubble Tea'] ['Restaurants', 'Food']
+    START_SLICE = 233
+    END_SLICE = 235
+    etl_api_to_gcs(TERMS, START_SLICE, END_SLICE)
 
 

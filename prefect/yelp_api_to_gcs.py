@@ -125,7 +125,7 @@ def etl_api_to_gcs() -> None:
     print(df_locations[415:417])
     
     # Assign url and api_key for Yelp Fusion API
-    URL = 'https://api.yelp.com/v3/businesses/search'
+    URL = 'http://api.yelp.com/v3/businesses/search'
     API_KEY = os.getenv("YELP_API_KEY")  # your api key
     HEADERS = {'Authorization': 'Bearer %s' % API_KEY}
     TERMS = ['Restaurants'] # ['Juice Bars & Smoothies', 'Desserts', 'Bakeries', 'Coffee & Tea', 'Bubble Tea']

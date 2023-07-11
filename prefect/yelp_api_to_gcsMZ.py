@@ -104,14 +104,13 @@ def pull_data_across_locations(url, headers, terms, df_locations):
     for term in terms:
 
         for i in range(df_locations.shape[0]):
-            
+            print(term, df_locations.iloc[i]['Name'], i)
             # Get results from get_api_data
             result = get_api_data(url, headers, term, df_locations.iloc[i]['Latitude'],
                                   df_locations.iloc[i]['Longitude'])
-            print(term, df_locations.iloc[i]['Name'], i)
             path = write_local(result, term, df_locations.iloc[i]['Name'], i)
             write_gcs(path)
-            
+            print(path)
             # Write into MySQL Workbench Server; all db_variables are global except result
             # insert_data_to_db(result, db_HOST, db_USER, db_PASSWORD, db_DATABASE, db_TABLE_NAME)
             results.extend(result)
@@ -122,7 +121,9 @@ def pull_data_across_locations(url, headers, terms, df_locations):
 def etl_api_to_gcs() -> None:
     
     df_locations = fetch_location_df("california_lat_long_cities.csv")
-    print(df_locations[415:417])
+    df_county = fetch_location_df("california_county_cities.csv")
+
+    # print(df_locations[415:417])
     
     # Assign url and api_key for Yelp Fusion API
     URL = 'http://api.yelp.com/v3/businesses/search'
@@ -130,8 +131,8 @@ def etl_api_to_gcs() -> None:
     HEADERS = {'Authorization': 'Bearer %s' % API_KEY}
     TERMS = ['Restaurants'] # ['Juice Bars & Smoothies', 'Desserts', 'Bakeries', 'Coffee & Tea', 'Bubble Tea']
     
-    api_results = pull_data_across_locations(URL, HEADERS, TERMS, df_locations[415:417])
-    print(api_results)
+    pull_data_across_locations(URL, HEADERS, TERMS, df_locations[233::])
+    # print(api_results)
     # ['Restaurants', 'Food']
     # Specify parameters for API
     # Torrance,33.83585,-118.340628 / iloc[415:416]

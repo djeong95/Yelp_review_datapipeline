@@ -1,0 +1,483 @@
+Entity Name,Entity ID,Entity Type,County Name,City,State,Zip,Estimated Population,Class Data,Fiscal Year End,Paper Report Due Date,Electronic Report Due Date
+Adelanto,1128,CIT,San Bernardino,Adelanto,CA,92301,36569,Chartered,630,131,131
+Agoura Hills,1129,CIT,Los Angeles,Agoura Hills,CA,91301,19975,General Law,630,131,131
+Alameda,1130,CIT,Alameda,Alameda,CA,94501,78262,Chartered,630,131,131
+Albany,1131,CIT,Alameda,Albany,CA,94706-2226,20542,Chartered,630,131,131
+Alhambra,1132,CIT,Los Angeles,Alhambra,CA,91802-2351,82182,Chartered,630,131,131
+Aliso Viejo,8635,CIT,Orange,Aliso Viejo,CA,92656-5335,51233,General Law,630,131,131
+Alturas,1133,CIT,Modoc,Alturas,CA,96101,2699,General Law,630,131,131
+Amador,1134,CIT,Amador,Amador,CA,95601,193,General Law,630,131,131
+American Canyon,1135,CIT,Napa,American Canyon,CA,94503-1100,21566,General Law,630,131,131
+Anaheim,1136,CIT,Orange,Anaheim,CA,92805,344604,Chartered,630,131,131
+Anderson,1137,CIT,Shasta,Anderson,CA,96007,11181,General Law,630,131,131
+Angels,1138,CIT,Calaveras,Angels Camp,CA,95222-0667,3641,General Law,630,131,131
+Antioch,1139,CIT,Contra Costa,Antioch,CA,94531-5007,115142,General Law,630,131,131
+Apple Valley,1140,CIT,San Bernardino,Apple Valley,CA,92307,76160,General Law,630,131,131
+Arcadia,1141,CIT,Los Angeles,Arcadia,CA,91066-6021,56240,Chartered,630,131,131
+Arcata,1142,CIT,Humboldt,Arcata,CA,95521,17633,General Law,630,131,131
+Arroyo Grande,1143,CIT,San Luis Obispo,Arroyo Grande,CA,93420,18533,General Law,630,131,131
+Artesia,1144,CIT,Los Angeles,Artesia,CA,90701,16347,General Law,630,131,131
+Arvin,1145,CIT,Kern,Arvin,CA,93203,19833,General Law,630,131,131
+Atascadero,1146,CIT,San Luis Obispo,Atascadero,CA,93422,30823,General Law,630,131,131
+Atherton,1147,CIT,San Mateo,Atherton,CA,94027,6806,General Law,630,131,131
+Atwater,1148,CIT,Merced,Atwater,CA,95301,32019,General Law,630,131,131
+Auburn,1149,CIT,Placer,Auburn,CA,95603,13795,General Law,630,131,131
+Avalon,1150,CIT,Los Angeles,Avalon,CA,90704,3428,General Law,630,131,131
+Avenal,1151,CIT,Kings,Avenal,CA,93204,12750,General Law,630,131,131
+Azusa,1152,CIT,Los Angeles,Azusa,CA,91702-1395,50191,General Law,630,131,131
+Bakersfield,1153,CIT,Kern,Bakersfield,CA,93307,406129,Chartered,630,131,131
+Baldwin Park,1154,CIT,Los Angeles,Baldwin Park,CA,91706,71455,General Law,630,131,131
+Banning,1155,CIT,Riverside,Banning,CA,92220,30629,General Law,630,131,131
+Barstow,1156,CIT,San Bernardino,Barstow,CA,92311-2888,25405,General Law,630,131,131
+Beaumont,1157,CIT,Riverside,Beaumont,CA,92223,54313,General Law,630,131,131
+Bell,1158,CIT,Los Angeles,Bell,CA,90201-1291,33962,Chartered,630,131,131
+Bell Gardens,1159,CIT,Los Angeles,Bell Gardens,CA,90201,39265,General Law,630,131,131
+Bellflower,1160,CIT,Los Angeles,Bellflower,CA,90706,78107,General Law,630,131,131
+Belmont,1161,CIT,San Mateo,Belmont,CA,94002-3867,27587,General Law,630,131,131
+Belvedere,1162,CIT,Marin,Belvedere,CA,94920,2103,General Law,630,131,131
+Benicia,1163,CIT,Solano,Benicia,CA,94510,26995,General Law,630,131,131
+Berkeley,1164,CIT,Alameda,Berkeley,CA,94704,121269,Chartered,630,131,131
+Beverly Hills,1165,CIT,Los Angeles,Beverly Hills,CA,90210,32565,General Law,630,131,131
+Big Bear Lake,1166,CIT,San Bernardino,Big Bear Lake,CA,92315,5054,Chartered,630,131,131
+Biggs,1167,CIT,Butte,Biggs,CA,95917,1974,General Law,630,131,131
+Bishop,1168,CIT,Inyo,Bishop,CA,93514,3868,General Law,630,131,131
+Blue Lake,1169,CIT,Humboldt,Blue Lake,CA,95525,1165,General Law,630,131,131
+Blythe,1170,CIT,Riverside,Blythe,CA,92225,17470,General Law,630,131,131
+Bradbury,1171,CIT,Los Angeles,Bradbury,CA,91008,914,General Law,630,131,131
+Brawley,1172,CIT,Imperial,Brawley,CA,92227,26648,General Law,630,131,131
+Brea,1173,CIT,Orange,Brea,CA,92821-5732,47097,General Law,630,131,131
+Brentwood,1174,CIT,Contra Costa,Brentwood,CA,94513-1396,64224,General Law,630,131,131
+Brisbane,1175,CIT,San Mateo,Brisbane,CA,94005,4789,General Law,630,131,131
+Buellton,1176,CIT,Santa Barbara,Buellton,CA,93427,5185,General Law,630,131,131
+Buena Park,1177,CIT,Orange,Buena Park,CA,90622,83968,Chartered,630,131,131
+Burbank,1178,CIT,Los Angeles,Burbank,CA,91502,106268,Chartered,630,131,131
+Burlingame,1179,CIT,San Mateo,Burlingame,CA,94010-3997,30699,General Law,630,131,131
+Calabasas,1180,CIT,Los Angeles,Calabasas,CA,91302,23151,General Law,630,131,131
+Calexico,1181,CIT,Imperial,Calexico,CA,92231,38906,General Law,630,131,131
+California City,1182,CIT,Kern,California City,CA,93505,14942,General Law,630,131,131
+Calimesa,1183,CIT,Riverside,Calimesa,CA,92320,10544,General Law,630,131,131
+Calipatria,1184,CIT,Imperial,Calipatria,CA,92233,6465,General Law,630,131,131
+Calistoga,1185,CIT,Napa,Calistoga,CA,94515,5283,General Law,630,131,131
+Camarillo,1186,CIT,Ventura,Camarillo,CA,93010,70739,General Law,630,131,131
+Campbell,1187,CIT,Santa Clara,Campbell,CA,95008,43086,General Law,630,131,131
+Canyon Lake,1188,CIT,Riverside,Canyon Lake,CA,92587,11147,General Law,630,131,131
+Capitola,1189,CIT,Santa Cruz,Capitola,CA,95010,10112,General Law,630,131,131
+Carlsbad,1190,CIT,San Diego,Carlsbad,CA,92008-7314,115680,Chartered,630,131,131
+Carmel-By-The-Sea,1191,CIT,Monterey,Carmel-By-The-Sea,CA,93921,3095,General Law,630,131,131
+Carpinteria,1192,CIT,Santa Barbara,Carpinteria,CA,93013-2698,13267,General Law,630,131,131
+Carson,1193,CIT,Los Angeles,Carson,CA,90745,92912,Chartered,630,131,131
+Cathedral City,1194,CIT,Riverside,Cathedral City,CA,92234-7031,51898,Chartered,630,131,131
+Ceres,1195,CIT,Stanislaus,Ceres,CA,95307-3292,48762,General Law,630,131,131
+Cerritos,1196,CIT,Los Angeles,Cerritos,CA,90703,49163,Chartered,630,131,131
+Chico,1197,CIT,Butte,Chico,CA,95927,102359,Chartered,630,131,131
+Chino,1198,CIT,San Bernardino,Chino,CA,91710,89824,General Law,630,131,131
+Chino Hills,1199,CIT,San Bernardino,Chino Hills,CA,91709,78437,General Law,630,131,131
+Chowchilla,1200,CIT,Madera,Chowchilla,CA,93610,18412,General Law,630,131,131
+Chula Vista,1201,CIT,San Diego,Chula Vista,CA,91910,276922,Chartered,630,131,131
+Citrus Heights,1202,CIT,Sacramento,Citrus Heights,CA,95621,87245,General Law,630,131,131
+Claremont,1203,CIT,Los Angeles,Claremont,CA,91711,37364,General Law,630,131,131
+Clayton,1204,CIT,Contra Costa,Clayton,CA,94517,10964,General Law,630,131,131
+Clearlake,1205,CIT,Lake,Clearlake,CA,95422,16671,General Law,630,131,131
+Cloverdale,1206,CIT,Sonoma,Cloverdale,CA,95425,9029,General Law,630,131,131
+Clovis,1207,CIT,Fresno,Clovis,CA,93612,121667,General Law,630,131,131
+Coachella,1208,CIT,Riverside,Coachella,CA,92236,42178,General Law,630,131,131
+Coalinga,1209,CIT,Fresno,Coalinga,CA,93210,17520,General Law,630,131,131
+Colfax,1210,CIT,Placer,Colfax,CA,95713,2016,General Law,630,131,131
+Colma,1211,CIT,San Mateo,Colma,CA,94014,1391,General Law,630,131,131
+Colton,1212,CIT,San Bernardino,Colton,CA,92324,53853,General Law,630,131,131
+Colusa,1213,CIT,Colusa,Colusa,CA,95932,6356,General Law,630,131,131
+Commerce,1214,CIT,Los Angeles,Commerce,CA,90040,12273,General Law,630,131,131
+Compton,1215,CIT,Los Angeles,Compton,CA,90220,95261,Chartered,630,131,131
+Concord,1216,CIT,Contra Costa,Concord,CA,94519,124755,General Law,630,131,131
+Corcoran,1217,CIT,Kings,Corcoran,CA,93212,20807,General Law,630,131,131
+Corning,1218,CIT,Tehama,Corning,CA,96021,8157,General Law,630,131,131
+Corona,1219,CIT,Riverside,Corona,CA,92882-3238,156901,General Law,630,131,131
+Coronado,1220,CIT,San Diego,Coronado,CA,92118,22611,General Law,630,131,131
+Corte Madera,1221,CIT,Marin,Corte Madera,CA,94925,10147,General Law,630,131,131
+Costa Mesa,1222,CIT,Orange,Costa Mesa,CA,92626,112183,General Law,630,131,131
+Cotati,1223,CIT,Sonoma,Cotati,CA,94931,7512,General Law,630,131,131
+Covina,1224,CIT,Los Angeles,Covina,CA,91723-2199,50933,General Law,630,131,131
+Crescent City,1225,CIT,Del Norte,Crescent City,CA,95531,6320,General Law,630,131,131
+Cudahy,1226,CIT,Los Angeles,Cudahy,CA,90201,22526,General Law,630,131,131
+Culver City,1227,CIT,Los Angeles,Culver City,CA,90232-0507,40330,Chartered,630,131,131
+Cupertino,1228,CIT,Santa Clara,Cupertino,CA,95014,59884,General Law,630,131,131
+Cypress,1229,CIT,Orange,Cypress,CA,90630,50029,Chartered,630,131,131
+Daly City,1230,CIT,San Mateo,Daly City,CA,94015,103930,General Law,630,131,131
+Dana Point,1231,CIT,Orange,Dana Point,CA,92629,33053,General Law,630,131,131
+Danville,1232,CIT,Contra Costa,Danville,CA,94526,43373,General Law,630,131,131
+Davis,1233,CIT,Yolo,Davis,CA,95616,66687,General Law,630,131,131
+Del Mar,1234,CIT,San Diego,Del Mar,CA,92014,3957,Chartered,630,131,131
+Del Rey Oaks,1235,CIT,Monterey,Del Rey Oaks,CA,93940,1558,General Law,630,131,131
+Delano,1236,CIT,Kern,Delano,CA,93216,50045,General Law,630,131,131
+Desert Hot Springs,1237,CIT,Riverside,Desert Hot Springs,CA,92240,32546,Chartered,630,131,131
+Diamond Bar,1238,CIT,Los Angeles,Diamond Bar,CA,91765,54782,General Law,630,131,131
+Dinuba,1239,CIT,Tulare,Dinuba,CA,93618,24872,Chartered,630,131,131
+Dixon,1240,CIT,Solano,Dixon,CA,95620-9990,19094,General Law,630,131,131
+Dorris,1241,CIT,Siskiyou,Dorris,CA,96023,859,General Law,630,131,131
+Dos Palos,1242,CIT,Merced,Dos Palos,CA,93620,5835,General Law,630,131,131
+Downey,1243,CIT,Los Angeles,Downey,CA,90241,113525,Chartered,630,131,131
+Duarte,1244,CIT,Los Angeles,Duarte,CA,91010,21473,General Law,630,131,131
+Dublin,1245,CIT,Alameda,Dublin,CA,94568,73209,General Law,630,131,131
+Dunsmuir,1246,CIT,Siskiyou,Dunsmuir,CA,96025,1705,General Law,630,131,131
+East Palo Alto,1247,CIT,San Mateo,East Palo Alto,CA,94303,29423,General Law,630,131,131
+Eastvale,10783,CIT,Riverside,Eastvale,CA,91752,70444,General Law,630,131,131
+El Cajon,1248,CIT,San Diego,El Cajon,CA,92020,106447,Chartered,630,131,131
+El Centro,1249,CIT,Imperial,El Centro,CA,92243,44871,Chartered,630,131,131
+El Cerrito,1250,CIT,Contra Costa,El Cerrito,CA,94530,25671,Chartered,630,131,131
+El Monte,1251,CIT,Los Angeles,El Monte,CA,91731,108728,General Law,630,131,131
+El Paso De Robles,1252,CIT,San Luis Obispo,El Paso De Robles,CA,93447,31659,General Law,630,131,131
+El Segundo,1253,CIT,Los Angeles,El Segundo,CA,90245,17244,General Law,630,131,502
+Elk Grove,1254,CIT,Sacramento,Elk Grove,CA,95758,176769,General Law,630,131,131
+Emeryville,1255,CIT,Alameda,Emeryville,CA,94608-3517,12617,Chartered,630,131,131
+Encinitas,1256,CIT,San Diego,Encinitas,CA,92024-3633,61724,General Law,630,131,131
+Escalon,1257,CIT,San Joaquin,Escalon,CA,95320,7439,General Law,630,131,131
+Escondido,1258,CIT,San Diego,Escondido,CA,92025,151389,General Law,630,131,131
+Etna,1259,CIT,Siskiyou,Etna,CA,96027,684,General Law,630,131,131
+Eureka,1260,CIT,Humboldt,Eureka,CA,95501,27134,Chartered,630,131,131
+Exeter,1261,CIT,Tulare,Exeter,CA,93221,10305,Chartered,630,131,131
+Fairfax,1262,CIT,Marin,Fairfax,CA,94930,7496,General Law,630,131,131
+Fairfield,1263,CIT,Solano,Fairfield,CA,94533-4883,120421,General Law,630,131,131
+Farmersville,1264,CIT,Tulare,Farmersville,CA,93223,10308,General Law,630,131,131
+Ferndale,1265,CIT,Humboldt,Ferndale,CA,95536,1376,General Law,630,131,131
+Fillmore,1266,CIT,Ventura,Fillmore,CA,93015,16681,General Law,630,131,131
+Firebaugh,1267,CIT,Fresno,Firebaugh,CA,93622,8164,General Law,630,131,131
+Folsom,1268,CIT,Sacramento,Folsom,CA,95630,83075,Chartered,630,131,131
+Fontana,1269,CIT,San Bernardino,Fontana,CA,92335,209889,General Law,630,131,131
+Fort Bragg,1270,CIT,Mendocino,Fort Bragg,CA,95437,7064,General Law,630,131,131
+Fort Jones,1271,CIT,Siskiyou,Fort Jones,CA,96032-0040,694,General Law,630,131,131
+Fortuna,1272,CIT,Humboldt,Fortuna,CA,95540,12523,Chartered,630,131,131
+Foster City,1273,CIT,San Mateo,Foster City,CA,94404,33325,General Law,630,131,131
+Fountain Valley,1274,CIT,Orange,Fountain Valley,CA,92708,57068,General Law,630,131,131
+Fowler,1275,CIT,Fresno,Fowler,CA,93625-2401,6863,General Law,630,131,131
+Fremont,1276,CIT,Alameda,Fremont,CA,94537-5006,228872,General Law,630,131,131
+Fresno,1277,CIT,Fresno,Fresno,CA,93721,542720,Chartered,630,131,131
+Fullerton,1278,CIT,Orange,Fullerton,CA,92632-1775,141974,General Law,630,131,131
+Galt,1279,CIT,Sacramento,Galt,CA,95632,25383,General Law,630,131,131
+Garden Grove,1280,CIT,Orange,Garden Grove,CA,92842,171284,General Law,630,131,131
+Gardena,1281,CIT,Los Angeles,Gardena,CA,90247-3732,60382,General Law,630,131,131
+Gilroy,1282,CIT,Santa Clara,Gilroy,CA,95020,59396,Chartered,630,131,131
+Glendale,1283,CIT,Los Angeles,Glendale,CA,91206,194618,Chartered,630,131,131
+Glendora,1284,CIT,Los Angeles,Glendora,CA,91741,52316,General Law,630,131,131
+Goleta,8636,CIT,Santa Barbara,Goleta,CA,93117,33315,General Law,630,131,131
+Gonzales,1285,CIT,Monterey,Gonzales,CA,93926,8492,General Law,630,131,131
+Grand Terrace,1286,CIT,San Bernardino,Grand Terrace,CA,92313,13131,General Law,630,131,131
+Grass Valley,1287,CIT,Nevada,Grass Valley,CA,95945-6588,13670,Chartered,630,131,131
+Greenfield,1288,CIT,Monterey,Greenfield,CA,93927,18705,General Law,630,131,131
+Gridley,1289,CIT,Butte,Gridley,CA,95948,7413,General Law,630,131,131
+Grover Beach,1290,CIT,San Luis Obispo,Grover Beach,CA,93433,12879,General Law,630,131,131
+Guadalupe,1291,CIT,Santa Barbara,Guadalupe,CA,93434,8622,General Law,630,131,131
+Gustine,1292,CIT,Merced,Gustine City,CA,95322-0016,6098,General Law,630,131,131
+Half Moon Bay,1293,CIT,San Mateo,Half Moon Bay,CA,94019,11462,General Law,630,131,131
+Hanford,1294,CIT,Kings,Hanford,CA,93230,58544,General Law,630,131,131
+Hawaiian Gardens,1295,CIT,Los Angeles,Hawaiian Gardens,CA,90716,13755,General Law,630,131,131
+Hawthorne,1296,CIT,Los Angeles,Hawthorne,CA,90250,87722,General Law,630,131,131
+Hayward,1297,CIT,Alameda,Hayward,CA,94541,161744,Chartered,630,131,131
+Healdsburg,1298,CIT,Sonoma,Healdsburg,CA,95448,11174,General Law,630,131,131
+Hemet,1299,CIT,Riverside,Hemet,CA,92543,89823,General Law,630,131,131
+Hercules,1300,CIT,Contra Costa,Hercules,CA,94547,26357,General Law,630,131,131
+Hermosa Beach,1301,CIT,Los Angeles,Hermosa Beach,CA,90254,19382,General Law,630,131,131
+Hesperia,1302,CIT,San Bernardino,Hesperia,CA,92345,100225,General Law,630,131,131
+Hidden Hills,1303,CIT,Los Angeles,Hidden Hills,CA,91302,1736,General Law,630,131,131
+Highland,1304,CIT,San Bernardino,Highland,CA,92346,56915,General Law,630,131,131
+Hillsborough,1305,CIT,San Mateo,Hillsborough,CA,94010-6498,11110,General Law,630,131,131
+Hollister,1306,CIT,San Benito,Hollister,CA,95023,41919,General Law,630,131,131
+Holtville,1307,CIT,Imperial,Holtville,CA,92250-1298,5504,General Law,630,131,131
+Hughson,1308,CIT,Stanislaus,Hughson,CA,95326,7495,General Law,630,131,131
+Huntington Beach,1309,CIT,Orange,Huntington Beach,CA,92648,197616,Chartered,630,131,502
+Huntington Park,1310,CIT,Los Angeles,Huntington Park,CA,90255,54519,General Law,630,131,131
+Huron,1311,CIT,Fresno,Huron,CA,93234,6176,General Law,630,131,131
+Imperial,1312,CIT,Imperial,Imperial,CA,92251,26448,General Law,630,131,131
+Imperial Beach,1313,CIT,San Diego,Imperial Beach,CA,91932,20755,General Law,630,131,131
+Indian Wells,1314,CIT,Riverside,Indian Wells,CA,92210-7497,4771,Chartered,630,131,131
+Indio,1315,CIT,Riverside,Indio,CA,92202,88862,General Law,630,131,131
+Industry,1316,CIT,Los Angeles,Industry,CA,91744,440,Chartered,630,131,131
+Inglewood,1317,CIT,Los Angeles,Inglewood,CA,90301,107143,Chartered,930,502,502
+Ione,1318,CIT,Amador,Ione,CA,95640,8722,General Law,630,131,131
+Irvine,1319,CIT,Orange,Irvine,CA,92623-9575,301254,Chartered,630,131,131
+Irwindale,1320,CIT,Los Angeles,Irwindale,CA,91706,1482,Chartered,630,131,131
+Isleton,1321,CIT,Sacramento,Isleton,CA,95641,790,General Law,630,131,131
+Jackson,1322,CIT,Amador,Jackson,CA,95642-2393,5028,General Law,630,131,131
+Jurupa Valley,11163,CIT,Riverside,Jurupa Valley,CA,92509,105415,General Law,630,131,131
+Kerman,1323,CIT,Fresno,Kerman,CA,93630-1799,16074,General Law,630,131,131
+King City,1324,CIT,Monterey,King City,CA,93930,13476,Chartered,630,131,131
+Kingsburg,1325,CIT,Fresno,Kingsburg,CA,93631,12533,Chartered,630,131,131
+La Canada Flintridge,1326,CIT,Los Angeles,La Canada Flintridge,CA,91011,20291,General Law,630,131,131
+La Habra,1327,CIT,Orange,La Habra,CA,90631,62317,General Law,630,131,131
+La Habra Heights,1328,CIT,Los Angeles,La Habra Heights,CA,90631,5655,General Law,630,131,131
+La Mesa,1329,CIT,San Diego,La Mesa,CA,92041-0314,60608,General Law,630,131,131
+La Mirada,1330,CIT,Los Angeles,La Mirada,CA,90638,49074,General Law,630,131,131
+La Palma,1331,CIT,Orange,La Palma,CA,90623,15463,General Law,630,131,131
+La Puente,1332,CIT,Los Angeles,La Puente,CA,91744,37626,General Law,630,131,131
+La Quinta,1333,CIT,Riverside,La Quinta,CA,92253,37949,Chartered,630,131,131
+La Verne,1334,CIT,Los Angeles,La Verne,CA,91750,32608,General Law,630,131,131
+Lafayette,1335,CIT,Contra Costa,Lafayette,CA,94549,25217,General Law,630,131,131
+Laguna Beach,1336,CIT,Orange,Laguna Beach,CA,92651,22862,General Law,630,131,131
+Laguna Hills,1337,CIT,Orange,Laguna Hills,CA,92653,31017,General Law,630,131,131
+Laguna Niguel,1338,CIT,Orange,Laguna Niguel,CA,92677,64885,General Law,630,131,131
+Laguna Woods,1339,CIT,Orange,Laguna Woods,CA,92653,17670,General Law,630,131,131
+Lake Elsinore,1340,CIT,Riverside,Lake Elsinore,CA,92530,70891,General Law,630,131,131
+Lake Forest,1341,CIT,Orange,Lake Forest,CA,92630,86406,General Law,630,131,131
+Lakeport,1342,CIT,Lake,Lakeport,CA,95453,4898,General Law,630,131,131
+Lakewood,1343,CIT,Los Angeles,Lakewood,CA,90712,81681,General Law,630,131,131
+Lancaster,1344,CIT,Los Angeles,Lancaster,CA,93534,176166,Chartered,630,131,131
+Larkspur,1345,CIT,Marin,Larkspur,CA,94939,12963,General Law,630,131,131
+Lathrop,1346,CIT,San Joaquin,Lathrop,CA,95330,29384,General Law,630,131,131
+Lawndale,1347,CIT,Los Angeles,Lawndale,CA,90260,31638,General Law,630,131,131
+Lemon Grove,1348,CIT,San Diego,Lemon Grove,CA,91945,27422,General Law,630,131,131
+Lemoore,1349,CIT,Kings,Lemoore,CA,93245,27225,Chartered,630,131,131
+Lincoln,1350,CIT,Placer,Lincoln,CA,95648,50422,General Law,630,131,131
+Lindsay,1351,CIT,Tulare,Lindsay,CA,93247,12624,Chartered,630,131,131
+Live Oak,1352,CIT,Sutter,Live Oak,CA,95953,9191,General Law,630,131,131
+Livermore,1353,CIT,Alameda,Livermore,CA,94550-4899,87388,General Law,630,131,131
+Livingston,1354,CIT,Merced,Livingston,CA,95334,14340,General Law,630,131,131
+Lodi,1355,CIT,San Joaquin,Lodi,CA,95241-1910,66145,General Law,630,131,131
+Loma Linda,1356,CIT,San Bernardino,Loma Linda,CA,92354,25310,Chartered,630,131,131
+Lomita,1357,CIT,Los Angeles,Lomita,CA,90717,20851,General Law,630,131,131
+Lompoc,1358,CIT,Santa Barbara,Lompoc,CA,93438,44044,General Law,630,131,131
+Long Beach,1359,CIT,Los Angeles,Long Beach,CA,90802,459757,Chartered,930,502,502
+Loomis,1360,CIT,Placer,Loomis,CA,95650,6833,General Law,630,131,131
+Los Alamitos,1361,CIT,Orange,Los Alamitos,CA,90720,11895,Chartered,630,131,131
+Los Altos,1362,CIT,Santa Clara,Los Altos,CA,94022,31651,General Law,630,131,131
+Los Altos Hills,1363,CIT,Santa Clara,Los Altos Hills,CA,94022,8414,General Law,630,131,131
+Los Angeles,1364,CIT,Los Angeles,Los Angeles,CA,90012,3853323,Chartered,630,131,131
+Los Banos,1365,CIT,Merced,Los Banos,CA,93635,46168,General Law,630,131,131
+Los Gatos,1366,CIT,Santa Clara,Los Gatos,CA,95031,33193,General Law,630,131,131
+Loyalton,1367,CIT,Sierra,Loyalton,CA,96118,737,General Law,630,131,131
+Lynwood,1368,CIT,Los Angeles,Lynwood,CA,90262,67260,General Law,630,131,131
+Madera,1369,CIT,Madera,Madera,CA,93637,66299,General Law,630,131,131
+Malibu,1370,CIT,Los Angeles,Malibu,CA,90265,10739,General Law,630,131,131
+Mammoth Lakes,1371,CIT,Mono,Mammoth Lakes,CA,93546,7324,General Law,630,131,131
+Manhattan Beach,1372,CIT,Los Angeles,Manhattan Beach,CA,90266-1040,35357,General Law,630,131,131
+Manteca,1373,CIT,San Joaquin,Manteca,CA,95337,84995,General Law,630,131,131
+Maricopa,1374,CIT,Kern,Maricopa,CA,93252,1028,General Law,630,131,131
+Marina,1375,CIT,Monterey,Marina,CA,93933,21271,Chartered,630,131,131
+Martinez,1376,CIT,Contra Costa,Martinez,CA,94553,37195,General Law,630,131,131
+Marysville,1377,CIT,Yuba,Marysville,CA,95901,13003,Chartered,630,131,131
+Maywood,1378,CIT,Los Angeles,Maywood,CA,90270,25033,General Law,630,131,131
+McFarland,1379,CIT,Kern,McFarland,CA,93250,14034,General Law,630,131,131
+Mendota,1380,CIT,Fresno,Mendota,CA,93640,12499,General Law,630,131,131
+Menifee,10255,CIT,Riverside,Menifee,CA,92586,103617,General Law,630,131,131
+Menlo Park,1381,CIT,San Mateo,Menlo Park,CA,94025,33509,General Law,630,131,131
+Merced,1382,CIT,Merced,Merced,CA,95340,88200,Chartered,630,131,131
+Mill Valley,1383,CIT,Marin,Mill Valley,CA,94941,14002,General Law,630,131,131
+Millbrae,1384,CIT,San Mateo,Millbrae,CA,94030,22807,General Law,630,131,131
+Milpitas,1385,CIT,Santa Clara,Milpitas,CA,95035,80287,General Law,630,131,131
+Mission Viejo,1386,CIT,Orange,Mission Viejo,CA,92691,93171,General Law,630,131,131
+Modesto,1387,CIT,Stanislaus,Modesto,CA,95353,218745,Chartered,630,131,131
+Monrovia,1388,CIT,Los Angeles,Monrovia,CA,91016,37809,General Law,630,131,131
+Montague,1389,CIT,Siskiyou,Montague,CA,96064,1232,General Law,630,131,131
+Montclair,1390,CIT,San Bernardino,Montclair,CA,91763,38052,General Law,630,131,131
+Monte Sereno,1391,CIT,Santa Clara,Monte Sereno,CA,95030,3458,General Law,630,131,131
+Montebello,1392,CIT,Los Angeles,Montebello,CA,90640,62180,General Law,630,131,131
+Monterey,1393,CIT,Monterey,Monterey,CA,93940,28347,Chartered,630,131,131
+Monterey Park,1394,CIT,Los Angeles,Monterey Park,CA,91754,60814,General Law,630,131,131
+Moorpark,1395,CIT,Ventura,Moorpark,CA,93021,35821,General Law,630,131,131
+Moraga,1396,CIT,Contra Costa,Moraga,CA,94556,17206,General Law,630,131,131
+Moreno Valley,1397,CIT,Riverside,Moreno Valley,CA,92553,209603,General Law,630,131,131
+Morgan Hill,1398,CIT,Santa Clara,Morgan Hill,CA,95037,46626,General Law,630,131,131
+Morro Bay,1399,CIT,San Luis Obispo,Morro Bay,CA,93442,10638,General Law,630,131,131
+Mountain View,1400,CIT,Santa Clara,Mountain View,CA,94039-7540,3247,Chartered,630,131,131
+Mt. Shasta,1401,CIT,Siskiyou,Mt. Shasta,CA,96067,83128,General Law,630,131,131
+Murrieta,1402,CIT,Riverside,Murrieta,CA,92562,111671,General Law,630,131,131
+Napa,1403,CIT,Napa,Napa,CA,94559,78246,Chartered,630,131,131
+National City,1404,CIT,San Diego,National City,CA,91950,61755,General Law,630,131,131
+Needles,1405,CIT,San Bernardino,Needles,CA,92363,4915,Chartered,630,131,131
+Nevada City,1406,CIT,Nevada,Nevada City,CA,95959,3386,General Law,630,131,131
+Newark,1407,CIT,Alameda,Newark,CA,94560,47157,General Law,630,131,131
+Newman,1408,CIT,Stanislaus,Newman,CA,95360,12326,General Law,630,131,131
+Newport Beach,1409,CIT,Orange,Newport Beach,CA,92660,84459,Chartered,630,131,131
+Norco,1410,CIT,Riverside,Norco,CA,92860-1903,24563,Chartered,630,131,131
+Norwalk,1411,CIT,Los Angeles,Norwalk,CA,90650,102356,General Law,630,131,131
+Novato,1412,CIT,Marin,Novato,CA,94945-5054,53008,General Law,630,131,131
+Oakdale,1413,CIT,Stanislaus,Oakdale,CA,95361,23110,General Law,630,131,131
+Oakland,1414,CIT,Alameda,Oakland,CA,94612,430100,Chartered,630,131,131
+Oakley,1415,CIT,Contra Costa,Oakley,CA,94561,43627,General Law,630,131,131
+Oceanside,1416,CIT,San Diego,Oceanside,CA,92054,173932,Chartered,630,131,131
+Ojai,1417,CIT,Ventura,Ojai,CA,93023,7523,General Law,630,131,131
+Ontario,1418,CIT,San Bernardino,Ontario,CA,91764,176689,General Law,630,131,131
+Orange,1419,CIT,Orange,Orange,CA,92866-1591,137534,General Law,630,131,131
+Orange Cove,1420,CIT,Fresno,Orange Cove,CA,93646,9553,General Law,630,131,131
+Orinda,1421,CIT,Contra Costa,Orinda,CA,94563,19496,General Law,630,131,131
+Orland,1422,CIT,Glenn,Orland,CA,95963,8319,General Law,630,131,131
+Oroville,1423,CIT,Butte,Oroville,CA,95965,20119,Chartered,630,131,131
+Oxnard,1424,CIT,Ventura,Oxnard,CA,93030,200480,General Law,630,131,131
+Pacific Grove,1425,CIT,Monterey,Pacific Grove,CA,93950,14942,Chartered,630,131,131
+Pacifica,1426,CIT,San Mateo,Pacifica,CA,94044,38088,General Law,630,131,131
+Palm Desert,1427,CIT,Riverside,Palm Desert,CA,92260,50976,Chartered,630,131,131
+Palm Springs,1428,CIT,Riverside,Palm Springs,CA,92263-2743,44570,Chartered,630,131,131
+Palmdale,1429,CIT,Los Angeles,Palmdale,CA,93550,168895,Chartered,630,131,131
+Palo Alto,1430,CIT,Santa Clara,Palo Alto,CA,94303,67422,Chartered,630,131,131
+Palos Verdes Estates,1431,CIT,Los Angeles,Palos Verdes Estates,CA,90274,13116,General Law,630,131,131
+Paradise,1432,CIT,Butte,Paradise,CA,95969,6137,General Law,630,131,131
+Paramount,1433,CIT,Los Angeles,Paramount,CA,90723,53009,General Law,630,131,131
+Parlier,1434,CIT,Fresno,Parlier,CA,93648,14553,General Law,630,131,131
+Pasadena,1435,CIT,Los Angeles,Pasadena,CA,91109-7215,139029,Chartered,630,131,131
+Patterson,1436,CIT,Stanislaus,Patterson,CA,95363,23839,General Law,630,131,131
+Perris,1437,CIT,Riverside,Perris,CA,92570,79327,General Law,630,131,131
+Petaluma,1438,CIT,Sonoma,Petaluma,CA,94952,59756,Chartered,630,131,131
+Pico Rivera,1439,CIT,Los Angeles,Pico Rivera,CA,90660,61827,General Law,630,131,131
+Piedmont,1440,CIT,Alameda,Piedmont,CA,94611,11138,Chartered,630,131,131
+Pinole,1441,CIT,Contra Costa,Pinole,CA,94564,18819,General Law,630,131,131
+Pismo Beach,1442,CIT,San Luis Obispo,Pismo Beach,CA,93449-2056,8095,General Law,630,131,131
+Pittsburg,1443,CIT,Contra Costa,Pittsburg,CA,94565,75788,General Law,630,131,131
+Placentia,1444,CIT,Orange,Placentia,CA,92870,51522,Chartered,630,131,131
+Placerville,1445,CIT,El Dorado,Placerville,CA,95667,10636,General Law,630,131,131
+Pleasant Hill,1446,CIT,Contra Costa,Pleasant Hill,CA,94523,34335,General Law,630,131,131
+Pleasanton,1447,CIT,Alameda,Pleasanton,CA,94566,78924,General Law,630,131,131
+Plymouth,1448,CIT,Amador,Plymouth,CA,95669,1056,General Law,630,131,131
+Point Arena,1449,CIT,Mendocino,Point Arena,CA,95468,446,General Law,630,131,131
+Pomona,1450,CIT,Los Angeles,Pomona,CA,91769,148879,Chartered,630,131,131
+Port Hueneme,1451,CIT,Ventura,Port Hueneme,CA,93041,22188,Chartered,630,131,131
+Porterville,1452,CIT,Tulare,Porterville,CA,93257,62515,Chartered,630,131,131
+Portola,1453,CIT,Plumas,Portola,CA,96122,2027,General Law,630,131,131
+Portola Valley,1454,CIT,San Mateo,Portola Valley,CA,94028,4355,General Law,630,131,131
+Poway,1455,CIT,San Diego,Poway,CA,92064,48850,General Law,630,131,131
+Rancho Cordova,8975,CIT,Sacramento,Rancho Cordova,CA,95670,79536,General Law,630,131,131
+Rancho Cucamonga,1456,CIT,San Bernardino,Rancho Cucamonga,CA,91730-3801,174484,General Law,630,131,131
+Rancho Mirage,1457,CIT,Riverside,Rancho Mirage,CA,92270,16650,Chartered,630,131,131
+Rancho Palos Verdes,1458,CIT,Los Angeles,Rancho Palos Verdes,CA,90275,41878,General Law,630,131,131
+Rancho Santa Margarita,1459,CIT,Orange,Rancho Santa Margarita,CA,92688,47703,General Law,630,131,131
+Red Bluff,1460,CIT,Tehama,Red Bluff,CA,96080,14698,General Law,630,131,131
+Redding,1461,CIT,Shasta,Redding,CA,96001,93879,General Law,630,131,131
+Redlands,1462,CIT,San Bernardino,Redlands,CA,92373,72933,General Law,630,131,131
+Redondo Beach,1463,CIT,Los Angeles,Redondo Beach,CA,90277,69742,Chartered,630,131,131
+Redwood City,1464,CIT,San Mateo,Redwood City,CA,94063-0391,81771,Chartered,630,131,131
+Reedley,1465,CIT,Fresno,Reedley,CA,93654,24929,General Law,630,131,131
+Rialto,1466,CIT,San Bernardino,Rialto,CA,92376,104050,General Law,630,131,131
+Richmond,1467,CIT,Contra Costa,Richmond,CA,94804,114643,Chartered,630,131,131
+Ridgecrest,1468,CIT,Kern,Ridgecrest,CA,93555-4054,28059,General Law,630,131,131
+Rio Dell,1469,CIT,Humboldt,Rio Dell,CA,95562,3380,General Law,630,131,131
+Rio Vista,1470,CIT,Solano,Rio Vista,CA,94591-1842,9961,General Law,630,131,131
+Ripon,1471,CIT,San Joaquin,Ripon,CA,95366,16162,General Law,630,131,131
+Riverbank,1472,CIT,Stanislaus,Riverbank,CA,95367-2396,24735,General Law,630,131,131
+Riverside,1473,CIT,Riverside,Riverside,CA,92555,312789,Chartered,630,131,131
+Rocklin,1474,CIT,Placer,Rocklin,CA,95677,71644,General Law,630,131,131
+Rohnert Park,1475,CIT,Sonoma,Rohnert Park,CA,94928,44287,General Law,630,131,131
+Rolling Hills,1476,CIT,Los Angeles,Rolling Hills,CA,90274,1703,General Law,630,131,131
+Rolling Hills Estates,1477,CIT,Los Angeles,Rolling Hills Estates,CA,90274,8283,General Law,630,131,131
+Rosemead,1478,CIT,Los Angeles,Rosemead,CA,91770,50823,General Law,630,131,131
+Roseville,1479,CIT,Placer,Roseville,CA,95678,148794,Chartered,630,131,131
+Ross,1480,CIT,Marin,Ross,CA,94957,2330,General Law,630,131,131
+Sacramento,1481,CIT,Sacramento,Sacramento,CA,95814,518322,Chartered,630,131,131
+Salinas,1482,CIT,Monterey,Salinas,CA,93901,161777,Chartered,630,131,131
+San Anselmo,1483,CIT,Marin,San Anselmo,CA,94960,12772,General Law,630,131,131
+San Bernardino,1484,CIT,San Bernardino,San Bernardino,CA,92401,222024,Chartered,630,131,131
+San Bruno,1485,CIT,San Mateo,San Bruno,CA,94066,43169,General Law,630,131,131
+San Buenaventura,1486,CIT,Ventura,San Buenaventura,CA,93002-0099,109821,Chartered,630,131,131
+San Carlos,1487,CIT,San Mateo,San Carlos,CA,94070,30207,General Law,630,131,131
+San Clemente,1488,CIT,Orange,San Clemente,CA,92673,63877,General Law,630,131,131
+San Diego,1489,CIT,San Diego,San Diego,CA,92101,1371832,Chartered,630,131,131
+San Dimas,1490,CIT,Los Angeles,San Dimas,CA,91773,34651,General Law,630,131,131
+San Fernando,1491,CIT,Los Angeles,San Fernando,CA,91340-2993,23520,General Law,630,131,131
+San Francisco,1492,CIT,San Francisco,San Francisco,CA,94102,849475,Chartered,630,131,131
+San Gabriel,1493,CIT,Los Angeles,San Gabriel,CA,91776,39250,General Law,630,131,131
+San Jacinto,1494,CIT,Riverside,San Jacinto,CA,92583,54503,General Law,630,131,131
+San Joaquin,1495,CIT,Fresno,San Joaquin,CA,93660,3674,General Law,630,131,131
+San Jose,1496,CIT,Santa Clara,San Jose,CA,95113-1905,991144,Chartered,630,131,131
+San Juan Bautista,1497,CIT,San Benito,San Juan Bautista,CA,95045-1420,2120,General Law,630,131,131
+San Juan Capistrano,1498,CIT,Orange,San Juan Capistrano,CA,92675,34907,General Law,630,131,131
+San Leandro,1499,CIT,Alameda,San Leandro,CA,94577,89926,Chartered,630,131,131
+San Luis Obispo,1500,CIT,San Luis Obispo,San Luis Obispo,CA,93401,47541,Chartered,630,131,131
+San Marcos,1501,CIT,San Diego,San Marcos,CA,92069-2918,92958,Chartered,630,131,131
+San Marino,1502,CIT,Los Angeles,San Marino,CA,91108,12334,General Law,630,131,131
+San Mateo,1503,CIT,San Mateo,San Mateo,CA,94403-1388,104719,Chartered,630,131,131
+San Pablo,1504,CIT,Contra Costa,San Pablo,CA,94806,31793,General Law,630,131,131
+San Rafael,1505,CIT,Marin,San Rafael,CA,94901,61179,Chartered,630,131,131
+San Ramon,1506,CIT,Contra Costa,San Ramon,CA,94583,84226,Chartered,630,131,131
+Sand City,1507,CIT,Monterey,Sand City,CA,93955,378,Chartered,630,131,131
+Sanger,1508,CIT,Fresno,Sanger,CA,93657,26558,General Law,630,131,131
+Santa Ana,1509,CIT,Orange,Santa Ana,CA,92702,311340,Chartered,630,131,131
+Santa Barbara,1510,CIT,Santa Barbara,Santa Barbara,CA,93102-1990,88499,Chartered,630,131,131
+Santa Clara,1511,CIT,Santa Clara,Santa Clara,CA,95050,129122,Chartered,630,131,131
+Santa Clarita,1512,CIT,Los Angeles,Santa Clarita,CA,91355,228084,General Law,630,131,131
+Santa Cruz,1513,CIT,Santa Cruz,Santa Cruz,CA,95060,57594,Chartered,630,131,131
+Santa Fe Springs,1514,CIT,Los Angeles,Santa Fe Springs,CA,90670-3679,18568,General Law,630,131,131
+Santa Maria,1515,CIT,Santa Barbara,Santa Maria,CA,93454,110969,Chartered,630,131,131
+Santa Monica,1516,CIT,Los Angeles,Santa Monica,CA,90401,93242,Chartered,630,131,131
+Santa Paula,1517,CIT,Ventura,Santa Paula,CA,93061,30629,General Law,630,131,131
+Santa Rosa,1518,CIT,Sonoma,Santa Rosa,CA,95404,177396,Chartered,630,131,131
+Santee,1519,CIT,San Diego,Santee,CA,92071-1266,59146,Chartered,630,131,131
+Saratoga,1520,CIT,Santa Clara,Saratoga,CA,95070,30772,General Law,630,131,131
+Sausalito,1521,CIT,Marin,Sausalito,CA,94965,7159,General Law,630,131,131
+Scotts Valley,1522,CIT,Santa Cruz,Scotts Valley,CA,95066,12407,General Law,630,131,131
+Seal Beach,1523,CIT,Orange,Seal Beach,CA,90740-6379,25002,Chartered,630,131,131
+Seaside,1524,CIT,Monterey,Seaside,CA,93955,31113,General Law,630,131,131
+Sebastopol,1525,CIT,Sonoma,Sebastopol,CA,95473,7520,General Law,630,131,131
+Selma,1526,CIT,Fresno,Selma,CA,93662,24702,General Law,630,131,131
+Shafter,1527,CIT,Kern,Shafter,CA,93263,19950,Chartered,630,131,131
+Shasta Lake,1528,CIT,Shasta,Shasta Lake,CA,96019,10318,General Law,630,131,131
+Sierra Madre,1529,CIT,Los Angeles,Sierra Madre,CA,91024,10959,General Law,630,131,131
+Signal Hill,1530,CIT,Los Angeles,Signal Hill,CA,90806,11702,Chartered,630,131,131
+Simi Valley,1531,CIT,Ventura,Simi Valley,CA,93063-2199,126478,General Law,630,131,131
+Solana Beach,1532,CIT,San Diego,Solana Beach,CA,92075,12909,General Law,630,131,131
+Soledad,1533,CIT,Monterey,Soledad,CA,93960,26316,General Law,630,131,131
+Solvang,1534,CIT,Santa Barbara,Solvang,CA,93463,5858,Chartered,630,131,131
+Sonoma,1535,CIT,Sonoma,Sonoma,CA,95476,10755,General Law,630,131,131
+Sonora,1536,CIT,Tuolumne,Sonora,CA,95370,5121,General Law,630,131,131
+South El Monte,1537,CIT,Los Angeles,South El Monte,CA,91733,19532,General Law,630,131,131
+South Gate,1538,CIT,Los Angeles,South Gate,CA,90280,92783,General Law,630,131,131
+South Lake Tahoe,1539,CIT,El Dorado,South Lake Tahoe,CA,96150,21508,General Law,930,502,502
+South Pasadena,1540,CIT,Los Angeles,South Pasadena,CA,91030,26849,General Law,630,131,131
+South San Francisco,1541,CIT,San Mateo,South San Francisco,CA,94083,65090,General Law,630,131,131
+St. Helena,1542,CIT,Napa,St. Helena,CA,94574,5521,General Law,630,131,131
+Stanton,1543,CIT,Orange,Stanton,CA,90680,38284,General Law,630,131,131
+Stockton,1544,CIT,San Joaquin,Stockton,CA,95202,323884,Chartered,630,131,131
+Suisun City,1545,CIT,Solano,Suisun City,CA,94585,29266,General Law,630,131,131
+Sunnyvale,1546,CIT,Santa Clara,Sunnyvale,CA,94088-3707,155326,Chartered,630,131,131
+Susanville,1547,CIT,Lassen,Susanville,CA,96130,14514,General Law,630,131,131
+Sutter Creek,1548,CIT,Amador,Sutter Creek,CA,95685,2640,General Law,630,131,131
+Taft,1549,CIT,Kern,Taft,CA,93268,7355,General Law,630,131,131
+Tehachapi,1550,CIT,Kern,Tehachapi,CA,93561-1722,12260,General Law,630,131,131
+Tehama,1551,CIT,Tehama,Tehama,CA,96090,427,General Law,630,131,131
+Temecula,1552,CIT,Riverside,Temecula,CA,92590,110394,General Law,630,131,131
+Temple City,1553,CIT,Los Angeles,Temple City,CA,91780-2249,36497,Chartered,630,131,131
+Thousand Oaks,1554,CIT,Ventura,Thousand Oaks,CA,91362-2903,125995,General Law,630,131,131
+Tiburon,1555,CIT,Marin,Tiburon,CA,94920,9065,General Law,630,131,131
+Torrance,1556,CIT,Los Angeles,Torrance,CA,90503,145876,Chartered,630,131,131
+Tracy,1557,CIT,San Joaquin,Tracy,CA,95376,93624,General Law,630,131,131
+Trinidad,1558,CIT,Humboldt,Trinidad,CA,95570,300,General Law,630,131,131
+Truckee,1559,CIT,Nevada,Truckee,CA,96161-3306,17035,Chartered,630,131,131
+Tulare,1560,CIT,Tulare,Tulare,CA,93274,69229,Chartered,630,131,131
+Tulelake,1561,CIT,Siskiyou,Tulelake,CA,96134,899,General Law,630,131,131
+Turlock,1562,CIT,Stanislaus,Turlock,CA,95380-5454,71734,General Law,630,131,131
+Tustin,1563,CIT,Orange,Tustin,CA,92780,80157,General Law,630,131,131
+Twentynine Palms,1564,CIT,San Bernardino,Twentynine Palms,CA,92277,27486,General Law,630,131,131
+Ukiah,1565,CIT,Mendocino,Ukiah,CA,95482,16228,General Law,630,131,131
+Union City,1566,CIT,Alameda,Union City,CA,94587,69301,General Law,630,131,131
+Upland,1567,CIT,San Bernardino,Upland,CA,91785-0460,78891,General Law,630,131,131
+Vacaville,1568,CIT,Solano,Vacaville,CA,95688,101286,General Law,630,131,131
+Vallejo,1569,CIT,Solano,Vallejo,CA,94590,124410,Chartered,630,131,131
+Vernon,1570,CIT,Los Angeles,Vernon,CA,90058,210,Chartered,630,131,131
+Victorville,1571,CIT,San Bernardino,Victorville,CA,92392,134700,Chartered,630,131,131
+Villa Park,1572,CIT,Orange,Villa Park,CA,92861-4105,5834,General Law,630,131,131
+Visalia,1573,CIT,Tulare,Visalia,CA,93291,141279,Chartered,630,131,131
+Vista,1574,CIT,San Diego,Vista,CA,92084,99536,Chartered,630,131,131
+Walnut,1575,CIT,Los Angeles,Walnut,CA,91788-0682,28344,General Law,630,131,131
+Walnut Creek,1576,CIT,Contra Costa,Walnut Creek,CA,94596,70566,General Law,630,131,131
+Wasco,1577,CIT,Kern,Wasco,CA,93280-2010,25235,General Law,630,131,131
+Waterford,1578,CIT,Stanislaus,Waterford,CA,95386,8944,General Law,630,131,131
+Watsonville,1579,CIT,Santa Cruz,Watsonville,CA,95076,52147,Chartered,630,131,131
+Weed,1580,CIT,Siskiyou,Weed,CA,96094,2826,General Law,630,131,131
+West Covina,1581,CIT,Los Angeles,West Covina,CA,91790,109290,General Law,630,131,131
+West Hollywood,1582,CIT,Los Angeles,West Hollywood,CA,90069-4314,35553,General Law,630,131,131
+West Sacramento,1583,CIT,Yolo,West Sacramento,CA,95691,53776,General Law,630,131,131
+Westlake Village,1584,CIT,Los Angeles,Westlake Village,CA,91361-4631,8121,General Law,630,131,131
+Westminster,1585,CIT,Orange,Westminster,CA,92683,90812,General Law,630,131,131
+Westmorland,1586,CIT,Imperial,Westmorland,CA,92281,2017,General Law,630,131,131
+Wheatland,1587,CIT,Yuba,Wheatland,CA,95692,3708,General Law,630,131,131
+Whittier,1588,CIT,Los Angeles,Whittier,CA,90602,87886,Chartered,630,131,131
+Wildomar,9995,CIT,Riverside,Wildomar,CA,92595,36928,General Law,630,131,131
+Williams,1589,CIT,Colusa,Williams,CA,95987,5530,General Law,630,131,131
+Willits,1590,CIT,Mendocino,Willits,CA,95490,4959,General Law,630,131,131
+Willows,1591,CIT,Glenn,Willows,CA,95988,6345,General Law,630,131,131
+Windsor,1592,CIT,Sonoma,Windsor,CA,95492-0100,26134,General Law,630,131,131
+Winters,1593,CIT,Yolo,Winters,CA,95694,7399,General Law,630,131,131
+Woodlake,1594,CIT,Tulare,Woodlake,CA,93286,7513,Chartered,630,131,131
+Woodland,1595,CIT,Yolo,Woodland,CA,95695,60999,General Law,630,131,131
+Woodside,1596,CIT,San Mateo,Woodside,CA,94062,5271,General Law,630,131,131
+Yorba Linda,1597,CIT,Orange,Yorba Linda,CA,92886-3364,67760,General Law,630,131,131
+Yountville,1598,CIT,Napa,Yountville,CA,94599,2942,General Law,630,131,131
+Yreka,1599,CIT,Siskiyou,Yreka,CA,96097-0000,7777,General Law,630,131,131
+Yuba City,1600,CIT,Sutter,Yuba City,CA,95993,69614,General Law,630,131,131
+Yucaipa,1601,CIT,San Bernardino,Yucaipa,CA,92399,54830,General Law,630,131,131
+Yucca Valley,1602,CIT,San Bernardino,Yucca Valley,CA,92284,21846,General Law,630,131,131

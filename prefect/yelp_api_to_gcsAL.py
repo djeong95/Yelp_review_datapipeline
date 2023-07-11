@@ -131,7 +131,7 @@ def etl_api_to_gcs() -> None:
     HEADERS = {'Authorization': 'Bearer %s' % API_KEY}
     TERMS = ['Restaurants'] # ['Juice Bars & Smoothies', 'Desserts', 'Bakeries', 'Coffee & Tea', 'Bubble Tea']
     
-    pull_data_across_locations(URL, HEADERS, TERMS, df_locations[::233]) # df_locations[::233] is AtoL; df_locations[233::] is MtoZ
+    pull_data_across_locations(URL, HEADERS, TERMS, df_locations[:233]) # df_locations[:233] is AtoL; df_locations[233::] is MtoZ
     
     # send local csv lat long file to GCS
     write_gcs("california_lat_long_cities.csv")

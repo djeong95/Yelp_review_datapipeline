@@ -130,7 +130,7 @@ def etl_api_to_gcs() -> None:
     API_KEY = os.getenv("YELP_API_KEY")  # your api key
     HEADERS = {'Authorization': 'Bearer %s' % API_KEY}
     TERMS = ['Restaurants'] # ['Juice Bars & Smoothies', 'Desserts', 'Bakeries', 'Coffee & Tea', 'Bubble Tea']
-    
+    # print(df_locations[233:235])
     pull_data_across_locations(URL, HEADERS, TERMS, df_locations[233::])
     # print(api_results)
     # ['Restaurants', 'Food']

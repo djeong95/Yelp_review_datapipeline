@@ -110,7 +110,7 @@ def pull_data_across_locations(url, headers, terms, df_locations):
                                   df_locations.iloc[i]['Longitude'])
             path = write_local(result, term, df_locations.iloc[i]['Name'], i)
             write_gcs(path)
-            print(path)
+            
             # Write into MySQL Workbench Server; all db_variables are global except result
             # insert_data_to_db(result, db_HOST, db_USER, db_PASSWORD, db_DATABASE, db_TABLE_NAME)
             results.extend(result)

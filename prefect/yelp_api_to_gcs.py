@@ -11,11 +11,11 @@ from prefect_gcp.cloud_storage import GcsBucket
 """
 The URL for the website is: https://fusion.yelp.com/. Create an account and follow the instructions on manage API access.
 For GCS access, create an account in https://cloud.google.com/.
-This script retrieves business data from the Yelp Fusion API at various locations throughout California, locally writes 
-data to JSON files, and then uploads the JSON files to Google Cloud Storage. 
+This script uses prefect to retrieve business data from the Yelp Fusion API at various locations throughout California, 
+locally write data to JSON files, and then upload the JSON files to Google Cloud Storage. 
 User must specify a list of terms (ex. ['Restaurants', 'Food', 'Coffee & Tea']) to pull data from the API.
 """
-@task(log_prints=True, retries=3)
+@task(log_prints=True)
 def fetch_location_df(filename):
     """
     Read a stored CSV file with Latitude and Longitude data for ~470 locations in California.

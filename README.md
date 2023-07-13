@@ -4,17 +4,38 @@
 The food and drinks recommendations provided by Google Maps and Yelp are mostly based on specific locations, ratings, and reviews. It is difficult to see if there are any new restaurants to try or holistically assess all of the restaurants in the area. I want to create an ELT pipeline that will enable me to study California's yelp dataset, find places that I have yet tried, and see if I can create a robust restaurant recommendation system competitive as Yelp's and Google's.
 
 ## Technology Stack
-The following technologies are used to build this project
+The following technologies are used to build this project:
 
+- Terraform as Infrastructure-as-Code (IaC) tool to set up Cloud environment
+- Yelp Fusion API
+- Prefect for orchestration workflow
 - Google Cloud Storage (GCS) as Data Lake
 - Google BigQuery for Data Warehouse
-- Terraform as Infrastructure-as-Code (IaC) tool to set up Cloud environment
-- Prefect for orchestration workflow
 - dbt for transformation and data modeling
 - Google Looker studio for visualizations
 ## Data Pipeline Architecture
 <img width="784" alt="image" src="https://github.com/djeong95/Yelp_review_datapipeline/assets/102641321/54e10af8-57c5-4a24-865d-ccaa4e60ba11">
 
+## Data Structure
+| Column | Data Type | Description |
+| --- | --- | --- |
+| id | String | Unique ID for every restaurant regardless of chain |
+| alias | String | Unique "ID" that has name and location and number |
+| name | String | Name of restaurant |
+| image_url | String | URL for first image that shows up when searched on Yelp  |
+| is_closed | Boolean | True for closed; False for open |
+| url | String | URL for Yelp  |
+| review_count | Integer | Total number of reviews |
+| categories | List of Dictionary | List of categories. Example: [{'alias': 'mexican', 'title': 'Mexican'}] |
+| rating | Float | Rating out of 5, with 5 being the best |
+| coordinates | Dictionary | Coordinate of restaruant. latitude and longitude are keys |
+| transactions | List | Example: delivery, pickup, None |
+| price | String | $, $$, $$$, $$$$ depending on price range in the area |
+| location | Dictionary | Address in dictionary form |
+| phone | String | phone number |
+| display_phone | String | phone number |
+| distance | Float | distance from location used to search |
+    
 ## Data Dashboard
 TBD
 ## Data Insights
@@ -71,6 +92,20 @@ terraform init
 terraform plan -var="project=<your-gcp-project-id>"
 terraform apply -var="project=<your-gcp-project-id>"
 ```
-Type 'yes' when prompted.
+- Type 'yes' when prompted.
 
 5. Setup your orchestration
+- If you do not have a prefect workspace, sign-up for the prefect cloud and create a workspace [here](https://app.prefect.cloud/auth/login)
+- Create the [prefect blocks](https://docs.prefect.io/2.10.21/concepts/blocks/) via the cloud UI or adjust the variables in /prefect/prefect_create_blocks.py and run
+```bash
+python prefect/prefect_create_blocks.py
+```
+- To execute the flow, run the following commands in two different terminals
+```bash
+prefect agent start -q 'default'
+python prefect/yelp_api_to_gcs.py
+python prefect/yelp_gcs_to_bq.py
+```
+After running the flow, you will find the data at BigQuery in yelp_data_raw.{term}_data_raw, the flow will take around 120 mins to complete, but it will vary depending on the term you run. Note that free Yelp API account is limited to 5000 calls each day. 
+
+6. Data tranformation and modeling using dbt

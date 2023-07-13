@@ -8,14 +8,25 @@ from datetime import timedelta
 from prefect import flow, task
 from prefect.tasks import task_input_hash
 from prefect_gcp.cloud_storage import GcsBucket
-
+"""
+The URL for the website is: https://fusion.yelp.com/. Create an account and follow the instructions on manage API access.
+For GCS access, create an account in https://cloud.google.com/.
+This script retrieves business data from the Yelp Fusion API at various locations throughout California, locally writes 
+data to JSON files, and then uploads the JSON files to Google Cloud Storage. 
+User must specify a list of terms (ex. ['Restaurants', 'Food', 'Coffee & Tea']) to pull data from the API.
+"""
 @task(log_prints=True, retries=3)
 def fetch_location_df(filename):
-    # Read csv file that has Lat / Long of 470 areas in CA
+    """
+    Read a stored CSV file with Latitude and Longitude data for ~470 locations in California.
+    
+    :param filename: The name of the CSV file to read.
+    :return: A DataFrame with the location data.
+    """
     try:
         df_locations = pd.read_csv(filename) #"california_lat_long_cities.csv"
-        # Convert all columns of df_locations to their equivalent Python types. Prefect would not accept float64 that is
-        # non native Python floats
+        # Convert all columns of df_locations to their equivalent Python types. 
+        # Prefect would not accept float64 that is non native Python floats
         df_locations = df_locations.astype('object')
     except FileNotFoundError:
         print("CSV File not found.")
@@ -23,7 +34,14 @@ def fetch_location_df(filename):
 
 @task()
 def write_local(data: json, term:str, location:str, index:int) -> Path:
-    """Write DataFrame out locally as json file"""
+    """Write DataFrame out locally as json file
+
+    :param data: The json format data to write locally.
+    :param term: The term corresponding to the data (ex. ['Restaurants', 'Food', 'Coffee & Tea']).
+    :param location: The name of location corresponding to the data (ex. Torrance).
+    :param index: The index of the location.
+    :return: The path of the written JSON file.
+    """
     path = Path(f"data/{term}-{location}-{index}.json")
     # Write the data to the JSON file # 'yelp_data_torr.json'
     with open(path, 'w') as f:
@@ -32,7 +50,10 @@ def write_local(data: json, term:str, location:str, index:int) -> Path:
 
 @task()
 def write_gcs(path: Path) -> None:
-    """Upload local file to GCS"""
+    """Upload a local file to Google Cloud Storage.
+    
+    :param path: The path of the local file to upload into GCS.
+    """
     gcs_block = GcsBucket.load("yelp-data-lake-yelp-pipeline-project")
     gcs_block.upload_from_path(
         from_path = f"{path}",
@@ -46,6 +67,7 @@ def get_api_data(url, headers, term, lat, long, limit = 50):
     """
     Retrieve data from Yelp Fusion API using the provided URL, headers, and parameters,
     and return the JSON data.
+
     :param url: API Host and search path (ie 'https://api.yelp.com/v3/businesses/search')
     :param headers: a dictionary of headers to send with API requests
     :param term: A term to include in the API query (ie 'Food', 'Restaurants', 'Coffee & Tea')
@@ -93,6 +115,7 @@ def pull_data_across_locations(url, headers, terms, df_locations, start_slice, e
     """
     Tap into get_api_data function to retrieve data from Yelp Fusion API
     using the provided URL, headers, and parameters, and return the JSON data.
+
     :param url: API Host and search path (ie 'https://api.yelp.com/v3/businesses/search')
     :param headers: a dictionary of headers to send with API requests
     :param terms: A list of terms to include in the API query (ie ['Food', 'Restaurants', 'Coffee & Tea'])
@@ -119,6 +142,15 @@ def pull_data_across_locations(url, headers, terms, df_locations, start_slice, e
 
 @flow(name="Ingest Flow")
 def etl_api_to_gcs(terms: list, start_slice: int, end_slice: int) -> None:
+    """
+    Execute the full ETL process: fetch location data, retrieve data from Yelp Fusion API, 
+    write the data to local JSON files, and upload the files to Google Cloud Storage.
+    
+    :param terms: A list of terms to search for.
+    :param start_slice: The start index for slicing the location DataFrame.
+    :param end_slice: The end index for slicing the location DataFrame.
+    """
+
     df_locations = fetch_location_df("california_lat_long_cities.csv")
     # df_county = fetch_location_df("california_county_cities.csv")
     # print(df_locations[233::])
@@ -141,7 +173,10 @@ def etl_api_to_gcs(terms: list, start_slice: int, end_slice: int) -> None:
     # Torrance,33.83585,-118.340628 / iloc[415:416]
 
 if __name__ == "__main__":
-    
+    """
+    Main entry point of the script. Sets the terms and DataFrame slice bounds, 
+    and then executes the ETL process.
+    """
     TERMS = ['Restaurants'] # ['Juice Bars & Smoothies', 'Desserts', 'Bakeries', 'Coffee & Tea', 'Bubble Tea'] ['Restaurants', 'Food']
     START_SLICE = 233
     END_SLICE = 235

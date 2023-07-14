@@ -13,13 +13,15 @@ The following technologies are used to build this project:
 - Google BigQuery for Data Warehouse
 - dbt for transformation and data modeling
 - Google Looker studio for visualizations
+
 ## Data Pipeline Architecture
 <img width="784" alt="image" src="https://github.com/djeong95/Yelp_review_datapipeline/assets/102641321/54e10af8-57c5-4a24-865d-ccaa4e60ba11">
 
 ## Data Structure
+Yelp API file Data Structure:
 | Column | Data Type | Description |
 | --- | --- | --- |
-| id | String | Unique ID for every restaurant regardless of chain |
+| id | String  | Unique ID for every restaurant regardless of chain |
 | alias | String | Unique "ID" that has name and location and number |
 | name | String | Name of restaurant |
 | image_url | String | URL for first image that shows up when searched on Yelp  |
@@ -30,12 +32,28 @@ The following technologies are used to build this project:
 | rating | Float | Rating out of 5, with 5 being the best |
 | coordinates | Dictionary | Coordinate of restaruant. latitude and longitude are keys |
 | transactions | List | Example: delivery, pickup, None |
-| price | String | $, $$, $$$, $$$$ depending on price range in the area |
+| price | String | '$', '$$', '$$$', '$$$$' depending on price range in the area |
 | location | Dictionary | Address in dictionary form |
 | phone | String | phone number |
 | display_phone | String | phone number |
 | distance | Float | distance from location used to search |
     
+Final DataDrame Data Structure:
+| Column | Data Type | 
+| --- | --- |
+| alias | String (object) |
+| name | String (object) |
+| url | String (object)|
+| review_count | int64 |
+| categories | List (object) |
+| ethnic_category | List (object) |
+| rating | float64 |
+| price | String (object) |
+| latitude | float64 |
+| longitude | float64 |
+| city | String (object) |
+| address| String (object) |
+
 ## Data Dashboard
 TBD
 ## Data Insights
@@ -53,7 +71,7 @@ TBD
 - Configure Identity and Access Management (IAM) for the service account, giving it the following privileges:
     - Viewer
     - Storage Admin
-    - Storage Object Admin
+    - Storage String (Object) Admin
     - BigQuery Admin
 
 - Download the JSON credentials and save it, e.g. to `~/.gc/<credentials>`

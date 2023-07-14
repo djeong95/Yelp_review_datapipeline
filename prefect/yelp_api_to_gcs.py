@@ -58,7 +58,7 @@ def write_gcs(path: Path) -> None:
     gcs_block.upload_from_path(
         from_path = f"{path}",
         to_path = path,
-        timeout=120 )
+        timeout=120)
     return
 
 #@task(cache_key_fn=task_input_hash, cache_expiration=timedelta(hours=1))

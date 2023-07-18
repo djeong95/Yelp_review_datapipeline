@@ -71,6 +71,8 @@ def write_local(data:json, term:str, location:str, index:int) -> Path:
 
 @task(log_prints=True, retries=3, cache_key_fn=task_input_hash, cache_expiration=timedelta(hours=1))
 def geolocate_with_address(row):
+    geolocator = Nominatim(user_agent='my-applications', timeout=10)
+
     time.sleep(1)
     if pd.isna(row['latitude']) and pd.isna(row['longitude']):
         location = geolocator.geocode(row['address'])
@@ -80,8 +82,8 @@ def geolocate_with_address(row):
     return row
 
 
-@task(log_prints=True)
-def read_json_transform_df(path:Path) -> pd.DataFrame:
+@flow(log_prints=True)
+def read_json_transform_df(path:Path, set_cities:set) -> pd.DataFrame:
     """
     Data cleaning and transformation before putting it into BigQuery.
     Section 1. Clean categories
@@ -115,7 +117,8 @@ def read_json_transform_df(path:Path) -> pd.DataFrame:
     df = pd.read_json(path)
     
     transformed_dataframe = df.copy()
-
+    if 'price' not in transformed_dataframe.columns:
+        transformed_dataframe['price'] = None
     # Section 2. Clean categories
     # convert 'categories' that were imported as strings to list of dictionaries
     transformed_dataframe['categories'] = transformed_dataframe['categories'].apply(lambda x: json.loads(json.dumps(x)))
@@ -138,16 +141,12 @@ def read_json_transform_df(path:Path) -> pd.DataFrame:
     transformed_dataframe['coordinates'] = transformed_dataframe['coordinates'].apply(lambda x: json.loads(json.dumps(x)))
     transformed_dataframe['latitude'] = transformed_dataframe['coordinates'].apply(lambda x: x['latitude'])
     transformed_dataframe['longitude'] = transformed_dataframe['coordinates'].apply(lambda x: x['longitude'])
-    # find missing coordinates
-    c = transformed_dataframe.loc[transformed_dataframe['latitude'].isna()]\
-        .apply(lambda x: geolocate_with_address(x), axis = 1)
-    transformed_dataframe.loc[transformed_dataframe['latitude'].isna()] = c
-
+    
     # convert 'location' that were imported as strings to dictionaries
     transformed_dataframe['location'] = transformed_dataframe['location'].apply(lambda x: json.loads(json.dumps(x)))
     # only have addresses that are in "CA" for state and start with 9 for 'zip_code'
     transformed_dataframe = transformed_dataframe[transformed_dataframe['location'].apply(
-        lambda x: x['state'] == 'CA' and x['zip_code'].startswith('9'))]
+        lambda x: x['state'] == 'CA' and x['city'] in set_cities)]
     # add 'city' column for easy parsing in the future
     transformed_dataframe['city'] = transformed_dataframe['location'].apply(
         lambda x: (str(x['city']).replace('  ', ' ').replace(',', '').lower().rstrip()))
@@ -158,6 +157,12 @@ def read_json_transform_df(path:Path) -> pd.DataFrame:
                     str(x['address1']) + ' ' + str(x['address2']) + ', '
                     + str(x['city'].replace('  ', ' ').replace(',', '').rstrip())
                     + ' ' + str(x['state']) + ' ' + str(x['zip_code'])))
+    # find missing coordinates
+    c = transformed_dataframe.loc[transformed_dataframe['latitude'].isna()]\
+        .apply(lambda x: geolocate_with_address(x), axis = 1)
+    transformed_dataframe.loc[transformed_dataframe['latitude'].isna()] = c
+
+
     # delete any 'address' that start with ',' (ex. ', San Jose CA')
     transformed_dataframe['address'] = transformed_dataframe['address'].str.lstrip(', ')
 
@@ -222,14 +227,14 @@ def etl_gcs_to_bq(terms: list, start_slice: int, end_slice: int):
     """
     total_rows = 0
     df_locations = fetch_location_df("california_lat_long_cities.csv")
-    geolocator = Nominatim(user_agent='my-applications', timeout=10)
+    set_cities = set(df_locations['Name'])
     for term in terms: 
         for i in range(start_slice, end_slice):
             print(term, df_locations.iloc[i]['Name'], i)
     
             gcs_path = extract_from_gcs(term, df_locations.iloc[i]['Name'], i)
-            df, row_count = read_json_transform_df(gcs_path)
-            path_for_file_save = write_local(df, term, df_locations.iloc[i]['Name'], i)
+            df, row_count = read_json_transform_df(gcs_path, set_cities)
+            # path_for_file_save = write_local(df, term, df_locations.iloc[i]['Name'], i)
             write_bq(df, term)
             
     
@@ -240,8 +245,11 @@ def etl_gcs_to_bq(terms: list, start_slice: int, end_slice: int):
             print(f"total rows: {total_rows} for {term}")
 
 if __name__ == "__main__":
-    TERMS = ['Restaurants'] # ['Juice Bars & Smoothies', 'Desserts', 'Bakeries', 'Coffee & Tea', 'Bubble Tea'] ['Restaurants', 'Food']
-    START_SLICE = 229 #For all, START_SLICE = 0, END_SLICE = 469; For LA, START_SLICE = 229 END_SLICE = 230
-    END_SLICE = 230
+    TERMS = ['Food'] # ['Juice Bars & Smoothies', 'Desserts', 'Bakeries', 'Coffee & Tea', 'Bubble Tea'] ['Restaurants', 'Food']
+    START_SLICE = 0 #For all, START_SLICE = 0, END_SLICE = 459; For LA, START_SLICE = 229 END_SLICE = 230
+    END_SLICE = 459 
     
     etl_gcs_to_bq(TERMS, START_SLICE, END_SLICE)
+
+    # prefect deployment build prefect/yelp_gcs_to_bq.py:etl_gcs_to_bq -n "Yelp ELT GCS to BQ"
+    # prefect deployment apply etl_gcs_to_bq-deployment.yaml 

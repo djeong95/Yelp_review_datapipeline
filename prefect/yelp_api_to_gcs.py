@@ -177,9 +177,9 @@ if __name__ == "__main__":
     Main entry point of the script. Sets the terms and DataFrame slice bounds, 
     and then executes the ETL process.
     """
-    TERMS = ['Restaurants'] # ['Juice Bars & Smoothies', 'Desserts', 'Bakeries', 'Coffee & Tea', 'Bubble Tea'] ['Restaurants', 'Food']
-    START_SLICE = 233
-    END_SLICE = 235
+    TERMS = ['Food'] # ['Juice Bars & Smoothies', 'Desserts', 'Bakeries', 'Coffee & Tea', 'Bubble Tea'] ['Restaurants', 'Food']
+    START_SLICE = 0
+    END_SLICE = 233
     etl_api_to_gcs(TERMS, START_SLICE, END_SLICE)
 
 

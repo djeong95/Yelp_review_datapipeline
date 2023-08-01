@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  - name: dim_coordinates
+    description: >
+      List of city names, latitudes, and longitudes.
+  
+  - name: dim_counties
+    description: >
+      List of city names, county the city is under, state name, and zipcode for that city.
+
+  - name: fact_yelp_all
+    description: >
+      Table that has each record being a restaurant, cafe, or dessert shop. 
+      It has all of the information (restaurant name, review count, ratings) pulled from Yelp Fusion API.

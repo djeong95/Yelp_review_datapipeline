@@ -1,0 +1,130 @@
+version: 2
+
+sources:
+    - name: staging
+      database: yelp-pipeline-project
+      schema: yelp_data_raw
+      tables:
+        - name: Food_data_raw
+        - name: Restaurants_data_raw
+        - name: Coffee_data_raw
+        - name: Desserts_data_raw
+
+models:
+  - name: stg_restaurants
+    description: >
+      Restaurants and Food data
+    columns:
+      - name: id
+        description: Unique restaurant id; Primary key for this table
+        tests:
+          - unique:
+              severity: warn
+          - not_null:
+              severity: warn
+      - name: alias
+        description: Unique restaurant alias
+      - name: name
+        description: Restaurant name
+      - name: url
+        description: yelp url for the restaurant webpage
+      - name: review_count
+        description: Number of reviews for the restaurant
+      - name: categories
+        description: categories/genre for the restaurant
+      - name: ethnic_category
+        description: If ethnic food, then has specific ethnic food category. If not, it is "Not Specified"
+      - name: rating
+        description: rating for the restaurant based on reviews
+      - name: price
+        description: price range for the restaurant. It is relative to location
+      - name: latitude
+        description: latitude of restaurant
+      - name: longitude
+        description: longitude of restaurant
+      - name: city
+        description: city where restaurant is located
+      - name: address
+        description: address of the restaurant
+      - name: type
+        description: type of shop ('Juice Bars & Smoothies', 'Desserts', 'Bakeries', 'Coffee & Tea', 'Bubble Tea', 'Restaurants', 'Food')
+
+  - name: stg_cafe_shops
+    description: >
+      cafe, coffee, and bubbletea mainly. Can have occasional juicebars.
+    columns:
+      - name: id
+        description: Unique cafe id; Primary key for this table
+        tests:
+          - unique:
+              severity: warn
+          - not_null:
+              severity: warn
+      - name: alias
+        description: Unique cafe alias
+      - name: name
+        description: cafe name
+      - name: url
+        description: yelp url for the cafe webpage
+      - name: review_count
+        description: Number of reviews for the cafe
+      - name: categories
+        description: categories/genre for the cafe
+      - name: ethnic_category
+        description: If ethnic cafe, then has specific ethnic category. If not, it is "Not Specified"
+      - name: rating
+        description: rating for the cafe based on reviews
+      - name: price
+        description: price range for the cafe. It is relative to location
+      - name: latitude
+        description: latitude of cafe
+      - name: longitude
+        description: longitude of cafe
+      - name: city
+        description: city where cafe is located
+      - name: address
+        description: address of the cafe
+      - name: type
+        description: type of shop ('Juice Bars & Smoothies', 'Desserts', 'Bakeries', 'Coffee & Tea', 'Bubble Tea', 'Restaurants', 'Food')
+
+  - name: stg_dessert_shops
+    description: >
+      desserts, icecream, cake, cupcakes
+    columns:
+      - name: id
+        description: Unique desserts id; Primary key for this table
+        tests:
+          - unique:
+              severity: warn
+          - not_null:
+              severity: warn
+      - name: alias
+        description: Unique desserts alias
+      - name: name
+        description: desserts name
+      - name: url
+        description: yelp url for the desserts webpage
+      - name: review_count
+        description: Number of reviews for the desserts
+      - name: categories
+        description: categories/genre for the desserts
+      - name: ethnic_category
+        description: If ethnic desserts, then has specific ethnic category. If not, it is "Not Specified"
+      - name: rating
+        description: rating for the desserts based on reviews
+      - name: price
+        description: price range for the desserts. It is relative to location
+      - name: latitude
+        description: latitude of desserts
+      - name: longitude
+        description: longitude of desserts
+      - name: city
+        description: city where desserts is located
+      - name: address
+        description: address of the desserts
+      - name: type
+        description: type of shop ('Juice Bars & Smoothies', 'Desserts', 'Bakeries', 'Coffee & Tea', 'Bubble Tea', 'Restaurants', 'Food')
+
+
+
+

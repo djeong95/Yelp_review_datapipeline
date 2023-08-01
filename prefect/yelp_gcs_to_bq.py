@@ -2,6 +2,7 @@ import os
 import io
 import json
 import time
+import re
 import pandas as pd
 from pathlib import Path
 from geopy.geocoders import Nominatim
@@ -52,22 +53,22 @@ def fetch_location_df(filename):
         print("CSV File not found.")
     return df_locations
 
-@task()
-def write_local(data:json, term:str, location:str, index:int) -> Path:
-    """Write DataFrame out locally as json file
+# @task()
+# def write_local(data:json, term:str, location:str, index:int) -> Path:
+#     """Write DataFrame out locally as json file
 
-    :param term: The term corresponding to the data (ex. ['Restaurants', 'Food', 'Coffee & Tea']).
-    :param location: The name of location corresponding to the data (ex. Torrance).
-    :param index: The index of the location.
-    :return: The path of the written JSON file.
-    """
-    path = Path(f"transformed_data/transformed_{term}-{location}-{index}.json")
+#     :param term: The term corresponding to the data (ex. ['Restaurants', 'Food', 'Coffee & Tea']).
+#     :param location: The name of location corresponding to the data (ex. Torrance).
+#     :param index: The index of the location.
+#     :return: The path of the written JSON file.
+#     """
+#     path = Path(f"transformed_data/transformed_{term}-{location}-{index}.json")
     
-    # Write the data to the JSON file # 'yelp_data_torr.json'
-    with open(path, 'w') as f:
-        f.write(data)
+#     # Write the data to the JSON file # 'yelp_data_torr.json'
+#     with open(path, 'w') as f:
+#         f.write(data)
     
-    return path
+#     return path
 
 @task(log_prints=True, retries=3, cache_key_fn=task_input_hash, cache_expiration=timedelta(hours=1))
 def geolocate_with_address(row):
@@ -115,10 +116,19 @@ def read_json_transform_df(path:Path, set_cities:set) -> pd.DataFrame:
     ETHNICITIES_CATEGORIES = {'japanese', 'greek', 'mideastern', 'uzbek', 'southern', 'arabian', 'eritrean', 'irish', 'oaxacan', 'cantonese', 'colombian', 'szechuan', 'puertorican', 'halal', 'laotian', 'armenian', 'basque', 'austrian', 'korean', 'bangladeshi', 'poutineries', 'somali', 'italian', 'bulgarian', 'yucatan', 'russian', 'dominican', 'latin', 'sardinian', 'filipino', 'lebanese', 'asianfusion', 'newmexican', 'senegalese', 'ukrainian', 'sicilian', 'australian', 'vietnamese', 'polynesian', 'georgian', 'southafrican', 'hkcafe', 'pakistani', 'mexican', 'peruvian', 'tradamerican', 'mongolian', 'portuguese', 'burmese', 'moroccan', 'cajun', 'hainan', 'brazilian', 'caribbean', 'honduran', 'himalayan', 'venezuelan', 'kosher', 'scottish', 'northernmexican', 'calabrian', 'tuscan', 'singaporean', 'cuban', 'chinese', 'hungarian', 'srilankan', 'panasian', 'syrian', 'afghani', 'argentine', 'spanish', 'modern_european', 'tex-mex', 'slovakian', 'cambodian', 'thai', 'belgian', 'czech', 'jaliscan', 'taiwanese', 'newamerican', 'scandinavian', 'malaysian', 'african', 'french', 'guamanian', 'shanghainese', 'british', 'indonesian', 'trinidadian', 'iberian', 'salvadoran', 'indpak', 'ethiopian', 'persian', 'polish', 'nicaraguan', 'newcanadian', 'hawaiian', 'haitian', 'german', 'egyptian', 'turkish'}
 
     df = pd.read_json(path)
-    
     transformed_dataframe = df.copy()
+
+    # if data frame is completely empty to begin with:
+    if transformed_dataframe.empty:
+        print("Dataframe is empty")
+        export_data = transformed_dataframe.to_json(orient='records', lines=True)
+        return export_data, 0
+
+    # create column named "price" if data frame does not have it and fill it with None for the whole dataset. 
     if 'price' not in transformed_dataframe.columns:
         transformed_dataframe['price'] = None
+
+
     # Section 2. Clean categories
     # convert 'categories' that were imported as strings to list of dictionaries
     transformed_dataframe['categories'] = transformed_dataframe['categories'].apply(lambda x: json.loads(json.dumps(x)))
@@ -136,45 +146,52 @@ def read_json_transform_df(path:Path, set_cities:set) -> pd.DataFrame:
                     if any(category in ETHNICITIES_CATEGORIES for category in x)
                     else ['Not Specified'])
 
-    # Section 3. Clean coordinates and locations
-    # convert 'coordinates' that were imported as strings to python dictionaries
-    transformed_dataframe['coordinates'] = transformed_dataframe['coordinates'].apply(lambda x: json.loads(json.dumps(x)))
-    transformed_dataframe['latitude'] = transformed_dataframe['coordinates'].apply(lambda x: x['latitude'])
-    transformed_dataframe['longitude'] = transformed_dataframe['coordinates'].apply(lambda x: x['longitude'])
+    if transformed_dataframe.empty:
+
+        print("Dataframe is empty")
+        export_data = transformed_dataframe.to_json(orient='records', lines=True)
+        return export_data, 0
     
-    # convert 'location' that were imported as strings to dictionaries
-    transformed_dataframe['location'] = transformed_dataframe['location'].apply(lambda x: json.loads(json.dumps(x)))
-    # only have addresses that are in "CA" for state and start with 9 for 'zip_code'
-    transformed_dataframe = transformed_dataframe[transformed_dataframe['location'].apply(
-        lambda x: x['state'] == 'CA' and x['city'] in set_cities)]
-    # add 'city' column for easy parsing in the future
-    transformed_dataframe['city'] = transformed_dataframe['location'].apply(
-        lambda x: (str(x['city']).replace('  ', ' ').replace(',', '').lower().rstrip()))
-    # clean up 'location' column from dictionary to usual address
-    transformed_dataframe['address'] = transformed_dataframe['location'].apply(
-        lambda x: (str(x['address1']) + ', ' + str(x['city'].rstrip()) + ' ' + str(x['state']) + ' ' + str(x['zip_code'])) if (
-                    x['address2'] is None or x['address2'] == '') else (
-                    str(x['address1']) + ' ' + str(x['address2']) + ', '
-                    + str(x['city'].replace('  ', ' ').replace(',', '').rstrip())
-                    + ' ' + str(x['state']) + ' ' + str(x['zip_code'])))
-    # find missing coordinates
-    c = transformed_dataframe.loc[transformed_dataframe['latitude'].isna()]\
-        .apply(lambda x: geolocate_with_address(x), axis = 1)
-    transformed_dataframe.loc[transformed_dataframe['latitude'].isna()] = c
+    else:
+        # Section 3. Clean coordinates and locations
+        # convert 'coordinates' that were imported as strings to python dictionaries
+        transformed_dataframe['coordinates'] = transformed_dataframe['coordinates'].apply(lambda x: json.loads(json.dumps(x)))
+        transformed_dataframe['latitude'] = transformed_dataframe['coordinates'].apply(lambda x: x['latitude'])
+        transformed_dataframe['longitude'] = transformed_dataframe['coordinates'].apply(lambda x: x['longitude'])
+        
+        # convert 'location' that were imported as strings to dictionaries
+        transformed_dataframe['location'] = transformed_dataframe['location'].apply(lambda x: json.loads(json.dumps(x)))
+        # only have addresses that are in "CA" for state and start with 9 for 'zip_code'
+        transformed_dataframe = transformed_dataframe[transformed_dataframe['location'].apply(
+            lambda x: x['state'] == 'CA' and x['city'] in set_cities)]
+        # add 'city' column for easy parsing in the future
+        transformed_dataframe['city'] = transformed_dataframe['location'].apply(
+            lambda x: (str(x['city']).replace('  ', ' ').replace(',', '').lower().rstrip()))
+        # clean up 'location' column from dictionary to usual address
+        transformed_dataframe['address'] = transformed_dataframe['location'].apply(
+            lambda x: (str(x['address1']) + ', ' + str(x['city'].rstrip()) + ' ' + str(x['state']) + ' ' + str(x['zip_code'])) if (
+                        x['address2'] is None or x['address2'] == '') else (
+                        str(x['address1']) + ' ' + str(x['address2']) + ', '
+                        + str(x['city'].replace('  ', ' ').replace(',', '').rstrip())
+                        + ' ' + str(x['state']) + ' ' + str(x['zip_code'])))
+        # find missing coordinates
+        c = transformed_dataframe.loc[transformed_dataframe['latitude'].isna()]\
+            .apply(lambda x: geolocate_with_address(x), axis = 1)
+        transformed_dataframe.loc[transformed_dataframe['latitude'].isna()] = c
 
 
-    # delete any 'address' that start with ',' (ex. ', San Jose CA')
-    transformed_dataframe['address'] = transformed_dataframe['address'].str.lstrip(', ')
+        # delete any 'address' that start with ',' (ex. ', San Jose CA')
+        transformed_dataframe['address'] = transformed_dataframe['address'].str.lstrip(', ')
 
-    
-    transformed_dataframe = transformed_dataframe[['id', 'alias', 'name', 'url', 'review_count',
-        'categories', 'ethnic_category', 'rating', 'price', 'latitude', 'longitude', 'city', 'address']] # .reset_index(drop=True)
-     
-    # transformed_dataframe = transformed_dataframe.astype(str)
-    row_count = len(transformed_dataframe)
-    export_data = transformed_dataframe.to_json(orient='records', lines=True)
-    
-    return export_data, row_count
+        
+        transformed_dataframe = transformed_dataframe[['id', 'alias', 'name', 'url', 'review_count',
+            'categories', 'ethnic_category', 'rating', 'price', 'latitude', 'longitude', 'city', 'address']] # .reset_index(drop=True)
+        
+        # transformed_dataframe = transformed_dataframe.astype(str)
+        row_count = len(transformed_dataframe)
+        export_data = transformed_dataframe.to_json(orient='records', lines=True)
+        
+        return export_data, row_count
 
 @task()
 def write_bq(df:json, term:str) -> "bigquery.Table":
@@ -235,7 +252,7 @@ def etl_gcs_to_bq(terms: list, start_slice: int, end_slice: int):
             gcs_path = extract_from_gcs(term, df_locations.iloc[i]['Name'], i)
             df, row_count = read_json_transform_df(gcs_path, set_cities)
             # path_for_file_save = write_local(df, term, df_locations.iloc[i]['Name'], i)
-            write_bq(df, term)
+            write_bq(df, re.split('\s+',term)[0])
             
     
             # pd.set_option('display.max_columns', 500)
@@ -245,9 +262,9 @@ def etl_gcs_to_bq(terms: list, start_slice: int, end_slice: int):
             print(f"total rows: {total_rows} for {term}")
 
 if __name__ == "__main__":
-    TERMS = ['Food'] # ['Juice Bars & Smoothies', 'Desserts', 'Bakeries', 'Coffee & Tea', 'Bubble Tea'] ['Restaurants', 'Food']
+    TERMS = ['Desserts'] # ['Juice Bars & Smoothies', 'Desserts', 'Bakeries', 'Coffee & Tea', 'Bubble Tea'] ['Restaurants', 'Food']
     START_SLICE = 0 #For all, START_SLICE = 0, END_SLICE = 459; For LA, START_SLICE = 229 END_SLICE = 230
-    END_SLICE = 459 
+    END_SLICE = 459
     
     etl_gcs_to_bq(TERMS, START_SLICE, END_SLICE)
 

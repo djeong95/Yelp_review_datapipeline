@@ -59,7 +59,9 @@ TBD
 ## Data Insights
 TBD
 ## Future Improvements
-TBD
+- Use Google Compute Engine and Docker to host this data pipeline in the cloud
+- Incorporate Yelp Reviews to build some kind of NLP model
+- Use MLOps to train/test and deploy the said model
 ## Reproduce it yourself
 
 1. Fork this repo, and clone it to your local environment.

@@ -65,12 +65,22 @@ filtered_restaurants_data as (
 
 ),
 
-yelp_all as (
+yelp_dup as (
     select *, 'restaurants' as type from filtered_restaurants_data
     union all
     select *, 'desserts' as type from desserts_data
     union all
     select *, 'cafe' as type from cafe_data
+),
+
+yelp_all as (
+    SELECT *
+    FROM (
+        SELECT *,
+            ROW_NUMBER() OVER(PARTITION BY id) as rn
+        FROM yelp_dup
+    )
+    WHERE rn = 1
 )
 
 select

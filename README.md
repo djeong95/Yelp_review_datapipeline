@@ -129,3 +129,25 @@ python prefect/yelp_gcs_to_bq.py
 After running the flow, you will find the data at BigQuery in yelp_data_raw.{term}_data_raw, the flow will take around 120 mins to complete, but it will vary depending on the term you run. Note that free Yelp API account is limited to 5000 calls each day. 
 
 6. Data tranformation and modeling using dbt
+
+Below is the lineage graph that describes the data transformation performed by dbt. 
+
+**Lineage Graph**
+<img width="1079" alt="image" src="https://github.com/djeong95/Yelp_review_datapipeline/assets/102641321/78023bda-f2cf-4f04-9731-d6853caf76e2">
+
+- Execute run the following command:
+
+```dbt build --var 'is_test_run: false'```
+
+You will get 6 tables in the yelp_data_dbt database:
+
+- dim_coordinates
+- dim_counties
+- fact_yelp_all
+- stg_cafes
+- stg_desserts
+- stg_restaurants
+
+## Data Vizualization and Dashboarding
+- You can now query the data and connect it to looker to visualize the data, when connecting to data source use fact_yelp_all table to build the data source in looker, don't use partitioned table, as you wont get any data in your report.
+- Go to [Looker Studio](https://lookerstudio.google.com/) → create → BigQuery → choose your project, dataset & transformed table.

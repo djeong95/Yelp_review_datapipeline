@@ -1,15 +1,13 @@
 {{ config(materialized="view") }}
 
 with restaurants_rawdata as (
-    select *,
-        'Restaurant' as type
+    select *
     from {{ source('staging', 'Restaurants_data_raw')  }}
     where id is not null
 ),
 
 food_rawdata as (
-    select *,
-        'Restaurant' as type
+    select *
     from {{ source('staging', 'Food_data_raw') }}
     where id is not null
 ),
@@ -39,8 +37,7 @@ SELECT
     CAST(t.longitude AS NUMERIC) AS longitude,
     {{ get_coordinates('latitude', 'longitude') }} as coordinate,
     CAST(t.city AS STRING) AS city,
-    CAST(t.address AS STRING) AS address,
-    CAST(t.type AS STRING) AS type 
+    CAST(t.address AS STRING) AS address
 FROM restaurants_unioned_deduped t
 
 -- # CROSS JOIN attempt generated way too many rows; decided on making them into string separated by comma. 

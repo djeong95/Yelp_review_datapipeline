@@ -46,9 +46,7 @@ models:
         description: city where restaurant is located
       - name: address
         description: address of the restaurant
-      - name: type
-        description: type of shop ('Juice Bars & Smoothies', 'Desserts', 'Bakeries', 'Coffee & Tea', 'Bubble Tea', 'Restaurants', 'Food')
-
+      
   - name: stg_cafe_shops
     description: >
       cafe, coffee, and bubbletea mainly. Can have occasional juicebars.
@@ -84,9 +82,7 @@ models:
         description: city where cafe is located
       - name: address
         description: address of the cafe
-      - name: type
-        description: type of shop ('Juice Bars & Smoothies', 'Desserts', 'Bakeries', 'Coffee & Tea', 'Bubble Tea', 'Restaurants', 'Food')
-
+      
   - name: stg_dessert_shops
     description: >
       desserts, icecream, cake, cupcakes
@@ -122,9 +118,7 @@ models:
         description: city where desserts is located
       - name: address
         description: address of the desserts
-      - name: type
-        description: type of shop ('Juice Bars & Smoothies', 'Desserts', 'Bakeries', 'Coffee & Tea', 'Bubble Tea', 'Restaurants', 'Food')
-
+      
 
 
 

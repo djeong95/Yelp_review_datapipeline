@@ -133,7 +133,7 @@ After running the flow, you will find the data at BigQuery in yelp_data_raw.{ter
 Below is the lineage graph that describes the data transformation performed by dbt. 
 
 **Lineage Graph**
-![Lineage Graph](image.png)
+<img width="1079" alt="image" src="https://github.com/djeong95/Yelp_review_datapipeline/assets/102641321/78023bda-f2cf-4f04-9731-d6853caf76e2">
 
 - Execute run the following command:
 

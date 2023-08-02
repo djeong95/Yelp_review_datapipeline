@@ -1,8 +1,7 @@
 {{ config(materialized="view") }}
 
 with desserts_rawdata as (
-    select *,
-        'Desserts' as type
+    select *
     from {{ source('staging', 'Desserts_data_raw')  }}
     where id is not null
 ),
@@ -29,8 +28,7 @@ SELECT
     CAST(t.longitude AS NUMERIC) AS longitude,
     {{ get_coordinates('latitude', 'longitude') }} as coordinate,
     CAST(t.city AS STRING) AS city,
-    CAST(t.address AS STRING) AS address,
-    CAST(t.type AS STRING) AS type 
+    CAST(t.address AS STRING) AS address
 FROM desserts_deduped t
 
 -- # CROSS JOIN attempt generated way too many rows; decided on making them into string separated by comma. 

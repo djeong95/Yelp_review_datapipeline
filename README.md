@@ -1,6 +1,6 @@
 # Yelp Review Restaurant Recommendations
 
-<img src="https://github.com/djeong95/Yelp_review_datapipeline/assets/102641321/fa6ca1e8-14fd-4229-ae7b-57dafe5c4dea" width="300">
+<img src="https://github.com/djeong95/Yelp_review_datapipeline/assets/102641321/fa6ca1e8-14fd-4229-ae7b-57dafe5c4dea" width="380">
 
 
 ## Problem Statement

@@ -1,5 +1,8 @@
 # Yelp Review Restaurant Recommendations
 
+![Yelp_Logo svg](https://github.com/djeong95/Yelp_review_datapipeline/assets/102641321/fa6ca1e8-14fd-4229-ae7b-57dafe5c4dea)
+
+
 ## Problem Statement
 The food and drinks recommendations provided by Google Maps and Yelp are mostly based on specific locations, ratings, and reviews. It is difficult to see if there are any new restaurants to try or holistically assess all of the restaurants in the area. I want to create an ELT pipeline that will enable me to study California's yelp dataset, find places that I have yet tried, and see if I can create a robust restaurant recommendation system competitive as Yelp's and Google's.
 
@@ -60,8 +63,6 @@ Check out the interactive dashboard [here](https://lookerstudio.google.com/s/qQM
 ![gif2](https://github.com/djeong95/Yelp_review_datapipeline/assets/102641321/ca502f66-9735-429f-8ee4-2874961dec0d)
 
 
-## Data Insights
-TBD
 ## Future Improvements
 - Use Google Compute Engine and Docker to host this data pipeline in the cloud
 - Incorporate Yelp Reviews to build some kind of NLP model

@@ -1,6 +1,6 @@
 # Yelp Review Restaurant Recommendations
 
-![Yelp_Logo svg](https://github.com/djeong95/Yelp_review_datapipeline/assets/102641321/fa6ca1e8-14fd-4229-ae7b-57dafe5c4dea)
+<img src="https://github.com/djeong95/Yelp_review_datapipeline/assets/102641321/fa6ca1e8-14fd-4229-ae7b-57dafe5c4dea" width="300">
 
 
 ## Problem Statement

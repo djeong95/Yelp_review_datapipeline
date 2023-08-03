@@ -55,7 +55,11 @@ Final DataDrame Data Structure:
 | address| String (object) |
 
 ## Data Dashboard
-TBD
+Check out the interactive dashboard [here](https://lookerstudio.google.com/s/qQM0NlyHlaI)
+
+![gif2](https://github.com/djeong95/Yelp_review_datapipeline/assets/102641321/ca502f66-9735-429f-8ee4-2874961dec0d)
+
+
 ## Data Insights
 TBD
 ## Future Improvements

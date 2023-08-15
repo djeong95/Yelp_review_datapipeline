@@ -1,4 +1,3 @@
-terraform/.terraform
 data/
 __pycache__
 # Default .gitignore content added by dbt Cloud
@@ -6,3 +5,10 @@ target/
 dbt_packages/
 logs/
 # end dbt Cloud content
+.ipynb_checkpoints/
+*.tfstate
+*.tfstate.*
+**.terraform*
+**.terraform.lock.*
+**google_credentials.json
+**.env

@@ -201,7 +201,7 @@ def write_bq(df:json, term:str) -> "bigquery.Table":
     # Construct a BigQuery client object.
 
     project_id = os.getenv("GOOGLE_CLOUD_PROJECT")
-    table_id =f"yelp_data_raw.{term}_data_raw"
+    table_id =f"yelp_data_raw_prod.{term}_data_raw"
     client = bigquery.Client(project=project_id)
     job_config = bigquery.LoadJobConfig(
         schema=[
@@ -243,7 +243,7 @@ def etl_gcs_to_bq(terms: list, start_slice: int, end_slice: int):
     
     """
     total_rows = 0
-    df_locations = fetch_location_df("california_lat_long_cities.csv")
+    df_locations = fetch_location_df("/usr/local/share/california_lat_long_cities.csv") # for local testing, simply do fetch_location_df("california_lat_long_cities.csv")
     set_cities = set(df_locations['Name'])
     for term in terms: 
         for i in range(start_slice, end_slice):
@@ -262,7 +262,7 @@ def etl_gcs_to_bq(terms: list, start_slice: int, end_slice: int):
             print(f"total rows: {total_rows} for {term}")
 
 if __name__ == "__main__":
-    TERMS = ['Desserts'] # ['Juice Bars & Smoothies', 'Desserts', 'Bakeries', 'Coffee & Tea', 'Bubble Tea'] ['Restaurants', 'Food']
+    TERMS = ['Juice Bars & Smoothies'] # ['Juice Bars & Smoothies', 'Desserts', 'Bakeries', 'Coffee & Tea', 'Bubble Tea'] ['Restaurants', 'Food']
     START_SLICE = 0 #For all, START_SLICE = 0, END_SLICE = 459; For LA, START_SLICE = 229 END_SLICE = 230
     END_SLICE = 459
     

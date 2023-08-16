@@ -152,7 +152,7 @@ def etl_api_to_gcs(terms: list, start_slice: int, end_slice: int) -> None:
     :param end_slice: The end index for slicing the location DataFrame.
     """
 
-    df_locations = fetch_location_df("california_lat_long_cities.csv")
+    df_locations = fetch_location_df("/usr/local/share/california_lat_long_cities.csv") # for local testing, simply use fetch_location_df("california_lat_long_cities.csv")
     # df_county = fetch_location_df("california_county_cities.csv")
     # print(df_locations[233::])
     
@@ -164,9 +164,9 @@ def etl_api_to_gcs(terms: list, start_slice: int, end_slice: int) -> None:
     pull_data_across_locations(URL, HEADERS, terms, df_locations, start_slice, end_slice) # df_locations[0:233] is AtoL; df_locations[233:469] is MtoZ
     
     # send local csv lat long file to GCS
-    write_gcs("california_lat_long_cities.csv")
+    write_gcs("/usr/local/share/california_lat_long_cities.csv") # for local testing, simply do write_gcs("california_lat_long_cities.csv")
     # send local csv counties cities file to GCS
-    write_gcs("california_county_cities.csv")
+    write_gcs("/usr/local/share/california_county_cities.csv") # for local testing, simply do write_gcs("california_county_cities.csv")
 
     # print(api_results)
     # 

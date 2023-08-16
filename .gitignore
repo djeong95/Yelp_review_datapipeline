@@ -11,4 +11,5 @@ logs/
 **.terraform*
 **.terraform.lock.*
 **google_credentials.json
+yelp-pipeline-project*.json
 **.env

@@ -8,6 +8,7 @@ from datetime import timedelta
 from prefect import flow, task
 from prefect.tasks import task_input_hash
 from prefect_gcp.cloud_storage import GcsBucket
+from dotenv import load_dotenv
 """
 The URL for the website is: https://fusion.yelp.com/. Create an account and follow the instructions on manage API access.
 For GCS access, create an account in https://cloud.google.com/.
@@ -54,7 +55,7 @@ def write_gcs(path: Path) -> None:
     
     :param path: The path of the local file to upload into GCS.
     """
-    gcs_block = GcsBucket.load("yelp-data-lake-yelp-pipeline-project")
+    gcs_block = GcsBucket.load("yelp-data-lake-yelp-pipeline-project-production")
     gcs_block.upload_from_path(
         from_path = f"{path}",
         to_path = path,
@@ -177,9 +178,10 @@ if __name__ == "__main__":
     Main entry point of the script. Sets the terms and DataFrame slice bounds, 
     and then executes the ETL process.
     """
-    TERMS = ['Food'] # ['Juice Bars & Smoothies', 'Desserts', 'Bakeries', 'Coffee & Tea', 'Bubble Tea'] ['Restaurants', 'Food']
+    load_dotenv()
+    TERMS = ['Juice Bars & Smoothies'] # ['Juice Bars & Smoothies', 'Desserts', 'Bakeries', 'Coffee & Tea', 'Bubble Tea'] ['Restaurants', 'Food']
     START_SLICE = 0
-    END_SLICE = 233
+    END_SLICE = 459
     etl_api_to_gcs(TERMS, START_SLICE, END_SLICE)
 
 

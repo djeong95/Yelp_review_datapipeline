@@ -8,7 +8,7 @@ RUN pip install -r requirements.txt
 
 # copy service account json file
 COPY yelp-pipeline-project-d37c8a515746.json /opt/yelp-pipeline-project-d37c8a515746.json
-
+COPY .env opt/.env
 # copy terraform files
 COPY terraform_rev2/main.tf opt/terraform_rev2/main.tf
 COPY terraform_rev2/variables.tf opt/terraform_rev2/variables.tf

@@ -10,7 +10,7 @@ variable "project" {
 
 variable "credentials" {
   description = "Your GCP service account credentials"
-  default = "/Users/davidjeong/Downloads/yelp-pipeline-project-d37c8a515746.json"
+  default = "/Users/davidjeong/Documents/data-engineering-zoomcamp/week_7_project/Yelp_review_datapipeline/yelp-pipeline-project-d37c8a515746.json"
   type = string
 }
 

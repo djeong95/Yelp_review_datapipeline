@@ -43,7 +43,7 @@ def write_local(data: json, term:str, location:str, index:int) -> Path:
     :param index: The index of the location.
     :return: The path of the written JSON file.
     """
-    path = Path(f"data/{term}-{location}-{index}.json")
+    path = Path(f"/opt/prefect/data/{term}-{location}-{index}.json")
     # Write the data to the JSON file # 'yelp_data_torr.json'
     with open(path, 'w') as f:
         json.dump(data, f)

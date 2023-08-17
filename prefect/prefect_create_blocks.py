@@ -3,9 +3,7 @@ from dotenv import load_dotenv
 from prefect import flow, task
 from prefect_gcp.cloud_storage import GcsBucket
 from prefect_gcp import GcpCredentials
-from prefect.infrastructure.docker import DockerContainer
-from prefect.deployments import Deployment
-from yelp_api_to_gcs import main
+
 
 """
 This is an alternative to creating GCP blocks in the UI
@@ -38,22 +36,5 @@ gcs_bucket_block = GcsBucket(
 )
 gcs_bucket_block.save(f"{gcs_bucket_name}", overwrite=True)
 
-
-# docker_block = DockerContainer(
-#     image="yelp-pipeline-container-production",
-#     image_pull_policy="ALWAYS"
-# )
-# docker_block.save(f"{docker_block_name}", overwrite=True)
-# docker_container_block = DockerContainer.load(docker_block_name)
-# print(docker_container_block)
-
-# docker_dep = Deployment.build_from_flow(
-#     flow = main,
-#     name = "docker-yelp-api-to-gcs",
-#     infrastructure = docker_container_block
-# ) 
-
-# if __name__ =='__main__':
-#     docker_dep.apply()
 # run this file under pwd /Users/davidjeong/Documents/data-engineering-zoomcamp/week_7_project/Yelp_review_datapipeline
 # python prefect/prefect_create_blocks.py

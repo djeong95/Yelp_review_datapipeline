@@ -1,9 +1,21 @@
-FROM prefecthq/prefect:2.10.4-python3.9
-FROM hashicorp/terraform:latest
+# Stage 1: Use the Ubuntu image to install wget and other potential utilities
+FROM ubuntu:20.04
 
 RUN apt-get update
 RUN apt-get install -y wget
 
+# Set the Terraform version as an argument for reusability
+ARG TERRAFORM_VERSION=1.5.5
+
+# Install required tools and download & install Terraform
+RUN apt-get update && \
+    apt-get install -y curl unzip && \
+    curl -LO "https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip" && \
+    unzip "terraform_${TERRAFORM_VERSION}_linux_amd64.zip" -d /usr/local/bin && \
+    rm "terraform_${TERRAFORM_VERSION}_linux_amd64.zip"
+
+# Stage 2: Build the main image based on Prefect with tools from stage 1
+FROM prefecthq/prefect:2.10.4-python3.9
 COPY requirements.txt ./
 RUN pip install -r requirements.txt
 

@@ -11,6 +11,7 @@ The following technologies are used to build this project:
 
 - Terraform as Infrastructure-as-Code (IaC) tool to set up Cloud environment
 - Yelp Fusion API
+- Docker
 - Prefect for orchestration workflow
 - Google Cloud Storage (GCS) as Data Lake
 - Google BigQuery for Data Warehouse
@@ -64,78 +65,170 @@ Check out the interactive dashboard [here](https://lookerstudio.google.com/s/qQM
 
 
 ## Future Improvements
-- Use Google Compute Engine and Docker to host this data pipeline in the cloud
+- Use Google Compute Engine and Docker to host this data pipeline in the cloud **(In progress)**
 - Incorporate Yelp Reviews to build some kind of NLP model
 - Use MLOps to train/test and deploy the said model
+
 ## Reproduce it yourself
 
-1. Fork this repo, and clone it to your local environment.
+Prerequisites: Ensure you have Google Cloud Platform, dbt, Prefect Cloud accounts. To run the project, use the following steps:
 
-`git clone https://github.com/djeong95/Yelp_review_datapipeline.git`
-
-2. Setup your Google Cloud environment
+1. Setup your Google Cloud environment & Generate Yelp API key
 - Create a [Google Cloud Platform project](https://console.cloud.google.com/cloud-resource-manager)
+- On GCP create a service account with with GCE, GCS and BiqQuery admin privileges. For a walkthrough, click [here](https://www.youtube.com/watch?v=Hajwnmj0xfQ&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=11&ab_channel=DataTalksClub%E2%AC%9B)
+
 - Configure Identity and Access Management (IAM) for the service account, giving it the following privileges:
     - Viewer
     - Storage Admin
     - Storage String (Object) Admin
     - BigQuery Admin
+- Generate Yelp API Key by creating an account with [Yelp](https://www.yelp.com/developers/v3/manage_app) and generating a free user API Key (limited to 5000 calls per day)
 
-- Download the JSON credentials and save it, e.g. to `~/.gc/<credentials>`
+3. Create a VM (Virtual Machine) with machine type `e2-standard-4` in a region that is the closest to you. Choose `Operating system: Ubuntu` with `Version: Ubuntu 20.04 LTS` and `Size: 40 GB`. For this project, region: `us-west2` (Los Angeles) was chosen.  
 
-- Install the [Google Cloud SDK](https://cloud.google.com/sdk/docs/install-sdk)
+4. Set up the VM. For a walkthrough, click [here](https://www.youtube.com/watch?v=ae-CV2KfoN0&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=14&ab_channel=DataTalksClub%E2%AC%9B)
+    - After ssh key is generated and the set up is performed similar to the video, you can easily log into VM with config file in .ssh directory. It will prompt you to input your password after this is run.
+    ```bash
+    # EXECUTE IN DIRECTORY WHERE SSH KEY IS
+    touch config 
+    code config #open VS code to edit
+    ```
+    In VS code, edit config file like below:
+    ```bash
+    Host YOUR_HOST_NAME_HERE 
+        HostName YOUR_VM_EXTERNAL_IP_ADDRESS_HERE
+        User YOUR_VM_USERNAME_HERE
+        IdentifyFile ~/YOUR_GCP_SSH_KEY_FILE_PATH_HERE
+    ```
+    Log into your GCP VM by executing `ssh YOUR_HOST_NAME_HERE` in a directory one above `/.ssh/` and typing the passphrase for that ssh.
+    - After logging into the VM, install Anaconda using the following steps:
+        - Download anaconda using `wget https://repo.anaconda.com/archive/Anaconda3-2023.07-2-Linux-x86_64.sh` or the latest version from this [link](https://www.anaconda.com/download#downloads).
+        - Run `bash Anaconda3-2023.07-2-Linux-x86_64.sh` to execute the download file. Accept all the terms and conditions of download.
+        - Then run the code below in your VM CLI.
+        ```bash
+        rm Anaconda3-2023.07-2-Linux-x86_64.sh
+        echo 'export PATH="~/anaconda/bin:$PATH"' >> ~/.bashrc 
+        
+        # Reload default profile
+        source ~/.bashrc
 
-- Let the [environment variable point to your GCP key](https://cloud.google.com/docs/authentication/application-default-credentials#GAC), authenticate it and refresh the session token
+        conda update conda
+        ```
+
+        - Install Docker and create a user & Install terraform by using the following steps:
+            ```bash
+            sudo apt-get update # if sudo not installed, do apt-get -y install sudo and then do sudo apt-get update
+            sudo apt-get install nano
+            sudo apt-get install docker.io
+            sudo groupadd docker
+            sudo gpasswd -a $USER docker
+            sudo docker service restart
+            ```
+4. Logout by `logout` and logging back in with `ssh YOUR_HOST_NAME_HERE`, assuming `config` file is set up. This is so that your group membership is re-evaluated. If not, you can run `ssh -i ~/YOUR_GCP_SSH_KEY_FILE_PATH_HERE YOUR_VM_USERNAME_HERE@YOUR_VM_EXTERNAL_IP_ADDRESS_HERE`.
+
+5. Fork this repo, and clone it to your local environment.
+
+`git clone https://github.com/djeong95/Yelp_review_datapipeline.git`
+
+6. Inside the VM under `/home/YOUR_USERNAME/Yelp_review_pipeline/` directory, create both `.env` and `SERVICE_ACCT_KEY.json` file.
 ```bash
-export GOOGLE_APPLICATION_CREDENTIALS=<path_to_your_credentials>.json
-gcloud auth application-default login
+touch .env
+nano .env
+
+touch SERVICE_ACCT_KEY.json
+nano SERVICE_ACCT_KEY.json
 ```
-Check out this [link](https://www.youtube.com/watch?v=Hajwnmj0xfQ&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=12&t=29s&ab_channel=DataTalksClub%E2%AC%9B) for a video walkthrough.
 
-3. Install all required dependencies into your environment
+- Inside the `.env` file, paste below information.
+    ```bash
+    YELP_API_KEY=YOUR_YELP_API_KEY_HERE
+    GCP_SERVICE_ACCOUNT_FILE=YOUR_SERVICE_ACCOUNT_KEY_JSONFILEPATH_HERE
+    GOOGLE_CLOUD_PROJECT=YOUR_PROJECT_NAME_HERE
+    ```
+- Inside the `SERVICE_ACCT_KEY.json` file, paste below information from your service account key that you generated.
+    ```bash
+    {
+  "type": "service_account",
+  "project_id": "YOUR_PROJECT_ID_HERE",
+  "private_key_id": "YOUR_PRIVATE_KEY_ID_HERE",
+  "private_key": "YOUR_PRIVATE_KEY_HERE",
+  "client_email": "YOUR_CLIENT_EMAIL_HERE",
+  "client_id": "YOUR_CLIENT_ID_HERE",
+  "auth_uri": "YOUR_INFORMATION_HERE",
+  "token_uri": "YOUR_INFORMATION_HERE",
+  "auth_provider_x509_cert_url": "YOUR_INFORMATION_HERE",
+  "client_x509_cert_url": "YOUR_INFORMATION_HERE",
+  "universe_domain": "YOUR_DOMAIN_HERE"
+    }
+    ```
+6. In your VM, you are now ready to build a Docker container from an image, which is defined using a Dockerfile.
 ```bash
-conda create -n yelp_project python=3.9
-conda activate yelp_project
-pip install -r requirements.txt
+# build docker image
+docker build -t yelp-pipeline-production:latest .
+
+# After docker container is built, add volumes for .env and api_key.json files
+docker run -it -v /home/YOUR_USERNAME/Yelp_review_datapipeline/.env:/opt/prefect/.env -v /home/YOUR_USERNAME/Yelp_review_datapipeline/SERVICE_ACCT_KEY.json:/opt/prefect/SERVICE_ACCT_KEY.json yelp-pipeline-production
 ```
 
-4. Setup your infrastructure
-Run the following commands to install Terraform - if you are using a different OS please choose the correct version [here](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) and exchange the download link and zip file name
-
+7. Install required tools and download & install Terraform.
 ```bash
-brew tap hashicorp/tap
-brew install hashicorp/tap/terraform
-# Verify successful install by executing below code:
-terraform -help 
+cd /usr/local/bin/
+TERRAFORM_VERSION="1.5.5"
+apt-get update
+apt-get install -y curl unzip
+curl -LO "https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip"
+unzip terraform_${TERRAFORM_VERSION}_linux_amd64.zip
+rm terraform_${TERRAFORM_VERSION}_linux_amd64.zip
 ```
-- Change the variables.tf file with your corresponding variables, I would recommend to leave the names of the datasets and bucket as they are; otherwise you need to change them in the prefect flows and dbt.
-- To initiate, plan and apply the infrastructure, adjust and run the following Terraform commands
+8. Run Terraform to create infrastructure.
+```bash
+cd /opt/terraform_rev2/
+```
+
+- If needed, use `nano variables.tf` to change the `variables.tf` file with your corresponding variables (`apt-get install nano` might be needed). I would recommend to leave the names of the datasets and bucket as they are; otherwise you need to change them in the prefect flows and dbt.
+- To initiate, plan and apply the infrastructure, adjust and run the following Terraform commands.
 
 ```bash
-cd terraform/
 terraform init
-terraform plan -var="project=<your-gcp-project-id>"
-terraform apply -var="project=<your-gcp-project-id>"
+terraform plan -var="project=YOUR_PROJECT_ID_HERE"
+terraform apply -var="project=YOUR_PROJECT_ID_HERE"
 ```
 - Type 'yes' when prompted.
 
-5. Setup your orchestration
-- If you do not have a prefect workspace, sign-up for the prefect cloud and create a workspace [here](https://app.prefect.cloud/auth/login)
-- Create the [prefect blocks](https://docs.prefect.io/2.10.21/concepts/blocks/) via the cloud UI or adjust the variables in /prefect/prefect_create_blocks.py and run
+9. Setup your orchestration
+- If you do not have a prefect workspace, sign-up for the prefect cloud and create a workspace [here](https://app.prefect.cloud/auth/login).
+- Generate `PREFECT_API_KEY` and `PREFECT_API_URL` for login via Docker container. 
+- Create the [prefect blocks](https://docs.prefect.io/2.10.21/concepts/blocks/) via the cloud UI or adjust the variables in /prefect/prefect_create_blocks.py and run.
 ```bash
+cd /opt/prefect/
+mkdir data/
+PREFECT_API_KEY="[API-KEY]"
+PREFECT_API_URL="https://api.prefect.cloud/api/accounts/[ACCOUNT-ID]/workspaces/[WORKSPACE-ID]"
+prefect cloud login
 python prefect/prefect_create_blocks.py
 ```
+- Run `prefect deployment build` commands for deploying scheduled runs. 
+```bash
+cd /opt/
+prefect deployment build ./prefect/yelp_api_to_gcs.py:etl_api_to_gcs -n "Parameterized ETL from API to GCS"
+prefect deployment build ./prefect/yelp_gcs_to_bq.py:etl_gcs_to_bq -n "Parameterized ETL from GCS datalake to BigQuery"
+```
+- Edit parameters as you see fit in the `etl_api_to_gcs-deployment.yaml` and `etl_gcs_to_bq-deployment.yaml` files generated by using `nano etl_api_to_gcs-deployment.yaml`.
+
+    **example:** 
+    `parameters: {"terms": ['Restaurants'], "start_slice": 0, "end_slice": 459}`
 - To execute the flow, run the following commands in two different terminals
 ```bash
-prefect agent start -q 'default'
-python prefect/yelp_api_to_gcs.py
-python prefect/yelp_gcs_to_bq.py
+prefect deployment apply etl_api_to_gcs-deployment.yaml
+prefect deployment apply etl_gcs_to_bq-deployment.yaml
+prefect agent start --work-queue "default" # run this to schedule your run
 ```
 After running the flow, you will find the data at BigQuery in yelp_data_raw.{term}_data_raw, the flow will take around 120 mins to complete, but it will vary depending on the term you run. Note that free Yelp API account is limited to 5000 calls each day. 
 
-6. Data tranformation and modeling using dbt
+10. Data tranformation and modeling using dbt
+- Follow the steps highlighted [here](https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/week_4_analytics_engineering/dbt_cloud_setup.md) to create an account and create a dbt cloud project. Skip the Create a BigQuery service account, as you already have a service account key.
 
-Below is the lineage graph that describes the data transformation performed by dbt. 
+- Below is the lineage graph that describes the data transformation performed by dbt. 
 
 **Lineage Graph**
 <img width="1079" alt="image" src="https://github.com/djeong95/Yelp_review_datapipeline/assets/102641321/78023bda-f2cf-4f04-9731-d6853caf76e2">

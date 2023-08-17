@@ -65,7 +65,7 @@ Check out the interactive dashboard [here](https://lookerstudio.google.com/s/qQM
 
 
 ## Future Improvements
-- Use Google Compute Engine and Docker to host this data pipeline in the cloud **(In progress)**
+- Use Google Compute Engine and Docker to host this data pipeline in the cloud **(Complete)**
 - Incorporate Yelp Reviews to build some kind of NLP model
 - Use MLOps to train/test and deploy the said model
 

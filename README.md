@@ -19,7 +19,7 @@ The following technologies are used to build this project:
 - Google Looker studio for visualizations
 
 ## Data Pipeline Architecture
-<img width="830" alt="image" src="https://github.com/djeong95/Yelp_review_datapipeline/assets/102641321/815870d3-cec8-41d2-9a17-c348eba19eec">
+<img width="830" alt="image" src="https://github.com/djeong95/Yelp_review_datapipeline/assets/102641321/0dc07542-6e6b-4c1a-9116-3d8959597fc7">
 
 ## Data Structure
 Yelp API file Data Structure:

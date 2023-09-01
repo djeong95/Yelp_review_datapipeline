@@ -67,8 +67,10 @@ Check out the interactive dashboard [here](https://lookerstudio.google.com/s/qQM
 
 ## Future Improvements
 - Use Google Compute Engine and Docker to host this data pipeline in the cloud **(Complete)**
-- Incorporate Yelp Reviews to build some kind of NLP model
-- Use MLOps to train/test and deploy the said model
+- Implement dbt testing for data integrity in terms of locations
+- Implement dbt incremental models for adding new data or updating old data
+- Optimize Dockerfile or use Docker Compose to streamline the dockerization process
+- Incorporate Yelp Reviews to build some kind of NLP model and replace `null` values in Price column with model's output and create a column with restaurant sentiment
 
 ## Reproduce it yourself
 

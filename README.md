@@ -9,14 +9,16 @@ The food and drinks recommendations provided by Google Maps and Yelp are mostly 
 ## Technology Stack
 The following technologies are used to build this project:
 
-- Terraform as Infrastructure-as-Code (IaC) tool to set up Cloud environment
+
 - Yelp Fusion API
-- Docker
 - Prefect for orchestration workflow
+- Google Compute Engine VM Instance
+- Docker
+- Terraform as Infrastructure-as-Code (IaC) tool to set up Cloud environment
 - Google Cloud Storage (GCS) as Data Lake
 - Google BigQuery for Data Warehouse
 - dbt for transformation and data modeling
-- Google Looker studio for visualizations
+- Google Looker Studio for visualizations
 
 ## Data Pipeline Architecture
 <img width="830" alt="image" src="https://github.com/djeong95/Yelp_review_datapipeline/assets/102641321/f909d896-ce46-4f4a-aa4b-df010ffd4391">
@@ -164,7 +166,7 @@ nano SERVICE_ACCT_KEY.json
   "universe_domain": "YOUR_DOMAIN_HERE"
     }
     ```
-6. In your VM, you are now ready to build a Docker container from an image, which is defined using a Dockerfile.
+7. In your VM, you are now ready to build a Docker container from an image, which is defined using a Dockerfile.
 ```bash
 # build docker image
 docker build -t yelp-pipeline-production:latest .
@@ -173,7 +175,7 @@ docker build -t yelp-pipeline-production:latest .
 docker run -it -v /home/YOUR_USERNAME/Yelp_review_datapipeline/.env:/opt/prefect/.env -v /home/YOUR_USERNAME/Yelp_review_datapipeline/SERVICE_ACCT_KEY.json:/opt/prefect/SERVICE_ACCT_KEY.json yelp-pipeline-production
 ```
 
-7. Install required tools and download & install Terraform.
+8. Install required tools and download & install Terraform.
 ```bash
 cd /usr/local/bin/
 TERRAFORM_VERSION="1.5.5"
@@ -183,7 +185,7 @@ curl -LO "https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terrafor
 unzip terraform_${TERRAFORM_VERSION}_linux_amd64.zip
 rm terraform_${TERRAFORM_VERSION}_linux_amd64.zip
 ```
-8. Run Terraform to create infrastructure.
+9. Run Terraform to create infrastructure.
 ```bash
 cd /opt/terraform_rev2/
 ```
@@ -198,7 +200,7 @@ terraform apply -var="project=YOUR_PROJECT_ID_HERE"
 ```
 - Type 'yes' when prompted.
 
-9. Setup your orchestration
+10. Setup your orchestration
 - If you do not have a prefect workspace, sign-up for the prefect cloud and create a workspace [here](https://app.prefect.cloud/auth/login).
 - Generate `PREFECT_API_KEY` and `PREFECT_API_URL` for login via Docker container. 
 - Create the [prefect blocks](https://docs.prefect.io/2.10.21/concepts/blocks/) via the cloud UI or adjust the variables in /prefect/prefect_create_blocks.py and run.
@@ -228,7 +230,7 @@ prefect agent start --work-queue "default" # run this to schedule your run
 ```
 After running the flow, you will find the data at BigQuery in yelp_data_raw.{term}_data_raw, the flow will take around 120 mins to complete, but it will vary depending on the term you run. Note that free Yelp API account is limited to 5000 calls each day. 
 
-10. Data tranformation and modeling using dbt
+11. Data tranformation and modeling using dbt
 - Follow the steps highlighted [here](https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/week_4_analytics_engineering/dbt_cloud_setup.md) to create an account and create a dbt cloud project. Skip the Create a BigQuery service account, as you already have a service account key.
 
 - Below is the lineage graph that describes the data transformation performed by dbt. 

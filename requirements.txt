@@ -4,7 +4,7 @@ requests==2.31.0
 gcsfs==2023.3.0
 pandas-gbq==0.19.1
 pathlib==1.0.1
-pyarrow==11.0.0
+pyarrow==14.0.1
 python-dotenv==1.0.0
 prefect-gcp[cloud_storage]==0.3.0
 prefect-dbt[bigquery]==0.3.1
